@@ -1,0 +1,70 @@
+export default function Clubs() {
+  const clubs = [
+    {
+      name: "Media Club",
+      image: "https://source.unsplash.com/400x250/?media,communication"
+    },
+    {
+      name: "English Club",
+      image: "https://source.unsplash.com/400x250/?english,speech"
+    },
+    {
+      name: "Social & Adventure Club",
+      image: "https://source.unsplash.com/400x250/?adventure,community"
+    },
+  ];
+
+  return (
+    <section
+      id="clubs"
+      className="relative py-24 bg-gradient-to-b from-gray-50 via-white to-gray-100"
+    >
+      <div className="max-w-6xl mx-auto px-6 text-center">
+        {/* ---- Title ---- */}
+        <h2 className="text-3xl md:text-4xl font-extrabold text-gray-900 mb-3">
+          Our <span className="text-orange-600">Clubs &amp; Societies</span>
+        </h2>
+        <p className="max-w-2xl mx-auto text-gray-600 mb-12 text-lg">
+          OCSC unites all student‑driven communities under one umbrella — connecting passionate learners,
+          innovators, and creators across every field in computing.
+        </p>
+
+        {/* ---- Uniform Club Cards ---- */}
+        <div className="grid sm:grid-cols-2 md:grid-cols-3 gap-8 justify-items-center">
+          {clubs.map((c, i) => (
+            <div
+              key={i}
+              className="group bg-white rounded-xl shadow-md hover:shadow-xl overflow-hidden
+                         transition-all duration-500 hover:-translate-y-2 border border-transparent 
+                         hover:border-orange-300 cursor-pointer flex flex-col w-full max-w-sm h-72"
+            >
+              {/* Club Image */}
+              <div className="h-44 w-full overflow-hidden flex-shrink-0">
+                <img
+                  src={c.image}
+                  alt={c.name}
+                  className="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-700"
+                />
+              </div>
+
+              {/* Club Name */}
+              <div className="flex-grow flex flex-col justify-center items-center p-5">
+                <h3 className="font-semibold text-lg text-gray-800 group-hover:text-orange-600 transition-colors text-center">
+                  {c.name}
+                </h3>
+              </div>
+
+              {/* Accent border effect */}
+              <span className="absolute inset-0 rounded-xl ring-2 ring-transparent group-hover:ring-orange-400 transition-all duration-500"></span>
+            </div>
+          ))}
+        </div>
+
+        {/* Decorative divider */}
+        <div className="mt-16 flex justify-center">
+          <span className="inline-block w-24 h-1 rounded-full bg-orange-500"></span>
+        </div>
+      </div>
+    </section>
+  );
+}

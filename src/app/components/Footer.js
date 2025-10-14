@@ -15,7 +15,7 @@ export default function Footer() {
         <div>
           <img
             src="/logo.png"
-            alt="FCSC Logo"
+            alt="Logo"
             className="h-10 mx-auto md:mx-0 mb-4"
           />
           <p className="text-gray-700 text-sm leading-relaxed">

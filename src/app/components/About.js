@@ -1,3 +1,5 @@
+import { FiArrowRight, FiCheckCircle } from 'react-icons/fi';
+
 export default function About() {
   return (
     <section
@@ -7,7 +9,7 @@ export default function About() {
       <div className="max-w-6xl mx-auto px-4 sm:px-6 grid md:grid-cols-2 gap-10 md:gap-12 items-center">
         {/* ------- Image ------- */}
         <div className="order-1 md:order-2 group relative">
-          <div className="absolute -inset-2 bg-gradient-to-tr from-orange-300 to-orange-600 rounded-3xl blur opacity-20 group-hover:opacity-30 transition-all duration-500"></div>
+          <div className="absolute -inset-2 bg-gradient-to-tr from-blue-300 to-blue-600 rounded-3xl blur opacity-20 group-hover:opacity-30 transition-all duration-500"></div>
           <img
             src="/Gemini_Generated_Image_u0abmtu0abmtu0abcopy.png"
             alt="OCSC events"
@@ -18,10 +20,9 @@ export default function About() {
         {/* ------- Text Content ------- */}
         <div className="order-2 md:order-1 text-center md:text-left">
           <h2 className="text-2xl sm:text-3xl md:text-4xl font-extrabold mb-6 text-gray-900 relative">
-            {/* orange accent bar (hidden on small screens for breathing room) */}
-            <span className="absolute -left-4 top-2 w-1 h-8 bg-orange-500 rounded-full hidden md:block"></span>
+            <span className="absolute -left-4 top-2 w-1 h-8 bg-blue-800 rounded-full hidden md:block"></span>
             What is{" "}
-            <span className="text-orange-600">OpenArc Campus Student Community</span>?
+            <span className="text-blue-800">OpenArc Campus Student Community</span>?
           </h2>
 
           <p className="text-gray-700 leading-relaxed text-base sm:text-lg mb-6">
@@ -37,11 +38,32 @@ export default function About() {
             advanced developers — there’s a place for everyone here.
           </p>
 
+          {/* Icon list (react-icons) */}
+          <ul className="grid grid-cols-1 sm:grid-cols-2 gap-3 mb-6">
+            <li className="flex items-center gap-2 text-gray-700">
+              <FiCheckCircle className="h-5 w-5 text-blue-700 flex-shrink-0" aria-hidden />
+              Student‑led societies & clubs
+            </li>
+            <li className="flex items-center gap-2 text-gray-700">
+              <FiCheckCircle className="h-5 w-5 text-blue-700 flex-shrink-0" aria-hidden />
+              Hackathons & events
+            </li>
+            <li className="flex items-center gap-2 text-gray-700">
+              <FiCheckCircle className="h-5 w-5 text-blue-700 flex-shrink-0" aria-hidden />
+              Peer learning & workshops
+            </li>
+            <li className="flex items-center gap-2 text-gray-700">
+              <FiCheckCircle className="h-5 w-5 text-blue-700 flex-shrink-0" aria-hidden />
+              Innovation & creativity
+            </li>
+          </ul>
+
           <a
             href="#whatwedo"
-            className="inline-block mt-3 px-6 py-3 bg-orange-600 text-white font-medium rounded-lg shadow-sm hover:bg-orange-700 transition duration-300"
+            className="inline-flex items-center gap-2 mt-3 px-6 py-3 bg-blue-600 text-white font-medium rounded-lg shadow-sm hover:bg-blue-700 transition duration-300"
           >
             Explore What We Do
+            <FiArrowRight className="h-5 w-5" aria-hidden />
           </a>
         </div>
       </div>

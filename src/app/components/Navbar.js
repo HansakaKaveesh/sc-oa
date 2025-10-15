@@ -84,12 +84,12 @@ export default function Navbar() {
               {item.name}
             </a>
           ))}
-          <div className="flex justify-center gap-5 text-orange-500 text-lg mt-3">
+          <div className="flex justify-center gap-5 text-blue-500 text-lg mt-3">
             {[FaFacebook, FaInstagram, FaYoutube, FaTiktok].map((Icon, i) => (
               <a
                 key={i}
                 href="#"
-                className="hover:text-orange-600 hover:scale-110 transition-transform"
+                className="hover:text-blue-600 hover:scale-110 transition-transform"
                 aria-label={`Social link ${i}`}
               >
                 <Icon />

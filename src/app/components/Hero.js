@@ -1,21 +1,4 @@
-"use client";
-import { useEffect, useState } from "react";
-
 export default function Hero() {
-  const [typedText, setTypedText] = useState("");
-  const fullText = "Student Council";
-  const speed = 75; // ms per character
-
-  useEffect(() => {
-    let i = 0;
-    const id = setInterval(() => {
-      setTypedText(fullText.slice(0, i + 1));
-      i++;
-      if (i === fullText.length) clearInterval(id);
-    }, speed);
-    return () => clearInterval(id);
-  }, []);
-
   return (
     <section
       id="hero"
@@ -41,15 +24,12 @@ export default function Hero() {
         </div>
 
         {/* Heading */}
-        <h1 className="text-3xl sm:text-4xl md:text-6xl font-extrabold text-blue-900 leading-snug sm:leading-tight drop-shadow-sm">
-          OpenArc Campus <br className="hidden sm:block" />
-          <span
-            className="text-blue-500 bg-gradient-to-r from-blue-600 to-blue-400 bg-clip-text text-transparent typing-caret"
-            aria-live="polite"
-          >
-            {typedText}
-          </span>
-        </h1>
+<h1 className="text-3xl sm:text-4xl md:text-6xl font-extrabold font-serif tracking-tight text-blue-900 leading-snug sm:leading-tight drop-shadow-sm">
+  OpenArc Campus <br className="hidden sm:block" />
+  <span className="text-blue-500 bg-gradient-to-r from-blue-600 to-blue-400 bg-clip-text text-transparent">
+    Student Council
+  </span>
+</h1>
 
         {/* Subtext */}
         <p className="max-w-md sm:max-w-2xl mx-auto mt-5 sm:mt-7 text-gray-700 text-base sm:text-lg md:text-xl leading-relaxed">
@@ -62,14 +42,14 @@ export default function Hero() {
         <div className="mt-10 sm:mt-12 flex flex-col sm:flex-row justify-center gap-4 sm:gap-6">
           <a
             href="#about"
-            className="px-7 py-3 sm:px-8 sm:py-4 bg-blue-700 text-white font-semibold rounded-lg shadow-lg 
+            className="px-7 py-3 sm:px-8 sm:py-2 bg-blue-700 text-white font-semibold rounded-lg shadow-lg 
                        hover:bg-blue-800 hover:shadow-xl transform hover:-translate-y-0.5 transition-all duration-300 w-full sm:w-auto"
           >
             Learn More
           </a>
           <a
             href="#contact"
-            className="px-7 py-3 sm:px-8 sm:py-4 border-2 border-blue-700 text-blue-700 font-semibold rounded-lg 
+            className="px-7 py-3 sm:px-8 sm:py-2 border-2 border-blue-700 text-blue-700 font-semibold rounded-lg 
                        hover:bg-blue-50 hover:text-blue-800 transform hover:-translate-y-0.5 transition-all duration-300 w-full sm:w-auto"
           >
             Get in Touch

@@ -29,13 +29,3 @@ body {
   font-family: Arial, Helvetica, sans-serif;
 }
 
-.typing-caret::after {
-  content: "|";
-  margin-left: 4px;
-  color: #2563eb; /* tailwind blue-600 */
-  animation: blink 1s steps(1, end) infinite;
-}
-
-@keyframes blink {
-  50% { opacity: 0; }
-}

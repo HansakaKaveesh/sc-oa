@@ -1,4 +1,21 @@
+"use client";
+import { useEffect, useState } from "react";
+
 export default function Hero() {
+  const [typedText, setTypedText] = useState("");
+  const fullText = "Student Council";
+  const speed = 75; // ms per character
+
+  useEffect(() => {
+    let i = 0;
+    const id = setInterval(() => {
+      setTypedText(fullText.slice(0, i + 1));
+      i++;
+      if (i === fullText.length) clearInterval(id);
+    }, speed);
+    return () => clearInterval(id);
+  }, []);
+
   return (
     <section
       id="hero"
@@ -26,8 +43,11 @@ export default function Hero() {
         {/* Heading */}
         <h1 className="text-3xl sm:text-4xl md:text-6xl font-extrabold text-blue-900 leading-snug sm:leading-tight drop-shadow-sm">
           OpenArc Campus <br className="hidden sm:block" />
-          <span className="text-blue-500 bg-gradient-to-r from-blue-600 to-blue-400 bg-clip-text text-transparent">
-            Student Council
+          <span
+            className="text-blue-500 bg-gradient-to-r from-blue-600 to-blue-400 bg-clip-text text-transparent typing-caret"
+            aria-live="polite"
+          >
+            {typedText}
           </span>
         </h1>
 

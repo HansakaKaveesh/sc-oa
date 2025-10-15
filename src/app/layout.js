@@ -12,8 +12,8 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata = {
-  title: "Student Community-OpenArc Campus",
-  description: "A vibrant community for students at OpenArc Campus",
+  title: "Student Council - OpenArc Campus",
+  description: "A vibrant council for students at OpenArc Campus",
 };
 
 export default function RootLayout({ children }) {

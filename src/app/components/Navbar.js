@@ -7,7 +7,7 @@ export default function Navbar() {
 
   const menuItems = [
     { name: "Home", href: "#home" },
-    { name: "About", href: "#about" },
+    
     { name: "Events", href: "#whatwedo" },
     { name: "Committee", href: "#specializations" },
     { name: "Gallery", href: "#clubs" },
@@ -15,16 +15,16 @@ export default function Navbar() {
   ];
 
   return (
-    <header className="fixed top-0 left-0 w-full z-50 bg-white/90 backdrop-blur border-b border-orange-100">
+    <header className="fixed top-0 left-0 w-full z-50 bg-white/90 backdrop-blur border-b border-b-blue-100">
 
       {/* Top gradient line */}
-      <div className="h-1 w-full bg-gradient-to-r from-orange-500 via-amber-400 to-orange-600" />
+      <div className="h-1 w-full bg-gradient-to-r from-blue-900 via-blue-400 to-blue-900" />
 
       <div className="max-w-7xl mx-auto flex justify-between items-center py-3 px-6">
         {/* ---- Logo ---- */}
         <a href="#home" className="flex items-center gap-2">
           <img
-            src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSfbRB3ylglcag8uiCkKi3f-_X82QXBEb0GeA&s"
+            src="Logo SCOC.png"
             alt="FCSC Logo"
             className="h-10 w-auto hover:scale-105 transition-transform duration-300"
           />
@@ -46,13 +46,13 @@ export default function Navbar() {
         </nav>
 
         {/* ---- Social + Mobile Toggle ---- */}
-        <div className="flex items-center gap-5 text-orange-500 text-lg">
+        <div className="flex items-center gap-5 text-blue-900 text-lg">
           <div className="hidden sm:flex gap-4">
             {[FaFacebook, FaInstagram, FaYoutube, FaTiktok].map((Icon, i) => (
               <a
                 key={i}
                 href="#"
-                className="hover:text-orange-600 hover:scale-110 transition-transform"
+                className="hover:text-blue-600 hover:scale-110 transition-transform"
                 aria-label={`Social link ${i}`}
               >
                 <Icon />

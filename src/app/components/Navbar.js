@@ -34,6 +34,7 @@ export default function Navbar() {
     { name: "Social & Adventure Club", href: "/clubs/social" },
   ];
 
+  // Scroll background effect
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 8);
     onScroll();
@@ -41,18 +42,26 @@ export default function Navbar() {
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
+  // Close dropdown when clicking outside (desktop only)
   useEffect(() => {
     const onDocClick = (e) => {
-      if (clubsOpen && dropdownRef.current && !dropdownRef.current.contains(e.target)) {
+      if (
+        window.innerWidth >= 768 &&
+        clubsOpen &&
+        dropdownRef.current &&
+        !dropdownRef.current.contains(e.target)
+      ) {
         setClubsOpen(false);
       }
     };
+
     const onEsc = (e) => {
       if (e.key === "Escape") {
         setOpen(false);
         setClubsOpen(false);
       }
     };
+
     document.addEventListener("mousedown", onDocClick);
     document.addEventListener("keydown", onEsc);
     return () => {
@@ -61,6 +70,7 @@ export default function Navbar() {
     };
   }, [clubsOpen]);
 
+  // Prevent background scroll when mobile nav open
   useEffect(() => {
     document.body.style.overflow = open ? "hidden" : "";
     return () => {
@@ -91,14 +101,17 @@ export default function Navbar() {
         {/* Logo */}
         <Link href="/" className="flex items-center gap-2" aria-label="SCOC Home">
           <img
-            src="Logo SCOC.png"
+            src="/Logo SCOC.png"
             alt="SCOC Logo"
             className="h-10 w-auto hover:scale-105 transition-transform duration-300"
           />
         </Link>
 
         {/* Desktop Menu */}
-        <nav className="hidden md:flex gap-8 text-[15px] font-medium relative" aria-label="Main">
+        <nav
+          className="hidden md:flex gap-8 text-[15px] font-medium relative"
+          aria-label="Main"
+        >
           {menuItems.map((item) =>
             item.name === "Clubs" ? (
               <div
@@ -125,7 +138,11 @@ export default function Navbar() {
                   }}
                 >
                   Clubs
-                  <FiChevronDown className={`text-sm transition-transform ${clubsOpen ? "rotate-180" : ""}`} />
+                  <FiChevronDown
+                    className={`text-sm transition-transform ${
+                      clubsOpen ? "rotate-180" : ""
+                    }`}
+                  />
                 </button>
 
                 {clubsOpen && (
@@ -211,22 +228,31 @@ export default function Navbar() {
                   aria-controls="mobile-clubs"
                 >
                   Clubs
-                  <FiChevronDown className={`transition-transform ${clubsOpen ? "rotate-180" : ""}`} />
+                  <FiChevronDown
+                    className={`transition-transform ${
+                      clubsOpen ? "rotate-180" : ""
+                    }`}
+                  />
                 </button>
-                {clubsOpen && (
-                  <div id="mobile-clubs" className="pl-4 space-y-1">
-                    {clubs.map((club) => (
-                      <Link
-                        key={club.name}
-                        href={club.href}
-                        onClick={() => setOpen(false)}
-                        className="block text-gray-600 hover:text-orange-500 transition rounded focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-orange-500"
-                      >
-                        {club.name}
-                      </Link>
-                    ))}
-                  </div>
-                )}
+
+                <div
+                  id="mobile-clubs"
+                  className={`overflow-hidden transition-all duration-300 ease-in-out ${
+                    clubsOpen ? "max-h-40 opacity-100" : "max-h-0 opacity-0"
+                  }`}
+                  onClick={(e) => e.stopPropagation()}
+                >
+                  {clubs.map((club) => (
+                    <Link
+                      key={club.name}
+                      href={club.href}
+                      onClick={() => setOpen(false)}
+                      className="block pl-4 py-1 text-gray-600 hover:text-orange-500 transition rounded focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-orange-500"
+                    >
+                      {club.name}
+                    </Link>
+                  ))}
+                </div>
               </div>
             ) : (
               <Link

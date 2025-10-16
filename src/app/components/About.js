@@ -11,7 +11,7 @@ export default function About() {
         <div className="order-1 md:order-2 group relative">
           <div className="absolute -inset-2 bg-gradient-to-tr from-blue-300 to-blue-600 rounded-3xl blur opacity-20 group-hover:opacity-30 transition-all duration-500"></div>
           <img
-            src="/Gemini_Generated_Image_u0abmtu0abmtu0abcopy.png"
+            src="Logo_in_Conference_Room_Mockup_2.png"
             alt="OCSC events"
             className="relative rounded-3xl shadow-xl object-cover w-full h-64 sm:h-72 md:h-[420px] transform group-hover:scale-[1.02] transition-transform duration-500"
           />

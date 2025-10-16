@@ -1,13 +1,4 @@
-import {
-  FiLinkedin,
-  FiGithub,
-  FiMail,
-  FiAward,
-  FiUsers,
-  FiCode,
-  FiShield,
-  FiCamera,
-} from 'react-icons/fi';
+import { FiLinkedin, FiGithub, FiMail, FiAward, FiUsers } from 'react-icons/fi';
 
 function initialsFromName(name = '') {
   return name
@@ -104,178 +95,39 @@ function Section({ title, Icon, members }) {
 
 export default function CommitteePage() {
   const year = '2024/25';
-  const headerBgUrl =
-    'hero2.jpg';
+  const headerBgUrl = '/hero2.jpg';
 
-  // Committee sections
+  // Committee sections only (clubs removed)
   const committeeSections = [
     {
       title: 'Executive Committee',
       Icon: FiAward,
       members: [
-        {
-          name: 'Jerushan Jacob',
-          role: 'President',
-          image:
-            'dummy.webp',
-
-        },
-        {
-          name: 'Uvindu Eshan',
-          role: 'Vice President',
-          image:
-            'dummy.webp',
-        },
-        {
-          name: 'Chrishelle Natara',
-          role: 'Secretary',
-          image:
-            'dummy.webp',
-
-        },
-        {
-          name: 'Rashan',
-          role: 'Vice Secretary',
-          image:
-            'dummy.webp',
-        },
-        {
-          name: 'Hansaka Wijesinghe',
-          role: 'Treasurer',
-          image:
-            'dummy.webp',
-         
-        },
-        {
-          name: 'Hansaja',
-          role: 'Vice Treasurer',
-          image:
-            'dummy.webp',
-        },
+        { name: 'Jerushan Jacob', role: 'President', image: 'dummy.webp' },
+        { name: 'Uvindu Eshan', role: 'Vice President', image: 'dummy.webp' },
+        { name: 'Chrishelle Natara', role: 'Secretary', image: 'dummy.webp' },
+        { name: 'Rashan', role: 'Vice Secretary', image: 'dummy.webp' },
+        { name: 'Hansaka Wijesinghe', role: 'Treasurer', image: 'dummy.webp' },
+        { name: 'Hansaja', role: 'Vice Treasurer', image: 'dummy.webp' },
       ],
     },
     {
       title: 'Committee Members',
       Icon: FiUsers,
       members: [
-        {
-          name: 'Emily Tan',
-          role: 'Events Lead',
-          image:
-            'dummy.webp',
-        },
-        {
-          name: 'Rahul Mehta',
-          role: 'Tech Lead',
-          image:
-            'dummy.webp',
-        },
-        {
-          name: 'Sara Lee',
-          role: 'Media Lead',
-          image:
-            'dummy.webp',
-        },
-        {
-          name: 'Daniel Kim',
-          role: 'Outreach Lead',
-          image:
-            'dummy.webp',
-        },
-      ],
-    },
-  ];
-
-  // Club sections (3 clubs, each with their own members)
-  const clubSections = [
-    {
-      title: 'Media Club',
-      Icon: FiCamera,
-      members: [
-        {
-          name: 'Kevin Silva',
-          role: 'Club Lead',
-          image:
-            'dummy.webp',
-        },
-        {
-          name: 'Maya Dias',
-          role: 'Co‑Lead',
-          image:
-            'dummy.webp',
-        },
-        {
-          name: 'Ruwan Jayasuriya',
-          role: 'Coordinator',
-          image:
-            'dummy.webp',
-        },
-        {
-          name: 'Anushka Fernando',
-          role: 'Mentor',
-          image:
-            'dummy.webp',
-        },
-      ],
-    },
-    {
-      title: 'English Club',
-      Icon: FiShield,
-      members: [
-        {
-          name: 'Ayesha Ranasinghe',
-          role: 'Club Lead',
-          image:
-            'dummy.webp',
-        },
-        {
-          name: 'Dilshan Perera',
-          role: 'Blue Team Lead',
-          image:
-            'dummy.webp',
-        },
-        {
-          name: 'Tharushi Jayasekara',
-          role: 'CTF Coordinator',
-          image:
-            'dummy.webp',
-        },
-        {
-          name: 'Ishara De Silva',
-          role: 'Research Lead',
-          image:
-            'dummy.webp',
-        },
-      ],
-    },
-    {
-      title: 'Social Club and Adventure Club',
-      Icon: FiCamera,
-      members: [
-        {
-          name: 'Nadia Fernando',
-          role: 'Club Lead',
-          image:
-            'dummy.webp',
-        },
-        {
-          name: 'Amal Jayawardena',
-          role: 'Videography Lead',
-          image:
-            'dummy.webp',
-        },
-        {
-          name: 'Minuri Peiris',
-          role: 'Graphics Lead',
-          image:
-            'dummy.webp',
-        },
-        {
-          name: 'Shehan Dias',
-          role: 'Photography Lead',
-          image:
-            'dummy.webp',
-        },
+        { name: 'Vinal', role: 'Member', image: 'dummy.webp' },
+        { name: 'Lakshan', role: 'Member', image: 'dummy.webp' },
+        { name: 'Sandaru', role: 'Member', image: 'dummy.webp' },
+        { name: 'Chamodhi', role: 'Member', image: 'dummy.webp' },
+        { name: 'Lahiru', role: 'Member', image: 'dummy.webp' },
+        { name: 'Dinidu', role: 'Member', image: 'dummy.webp' },
+        { name: 'Heshan', role: 'Member', image: 'dummy.webp' },
+        { name: 'Nirmani', role: 'Member', image: 'dummy.webp' },
+        { name: 'Sheika', role: 'Member', image: 'dummy.webp' },
+        { name: 'Sadeepa', role: 'Member', image: 'dummy.webp' },
+        { name: 'Nethmi', role: 'Member', image: 'dummy.webp' },
+        { name: 'Tharushi', role: 'Member', image: 'dummy.webp' },
+        { name: 'Ruhini', role: 'Member', image: 'dummy.webp' },
       ],
     },
   ];
@@ -304,33 +156,12 @@ export default function CommitteePage() {
         </div>
       </section>
 
-      {/* Committee sections */}
-      <div className="max-w-6xl mx-auto px-4 sm:px-6">
+      {/* Committee sections + CTA */}
+      <div className="max-w-6xl mx-auto px-4 sm:px-6 pb-16 sm:pb-20 md:pb-24">
         {committeeSections.map((sec) => (
           <Section key={sec.title} title={sec.title} Icon={sec.Icon} members={sec.members} />
         ))}
-      </div>
 
-      {/* Clubs header */}
-      <section className="mt-14 sm:mt-16 text-center">
-        <div className="max-w-6xl mx-auto px-4 sm:px-6">
-          <h2 className="text-2xl sm:text-3xl font-extrabold text-gray-900">Club Leadership</h2>
-          <p className="max-w-2xl mx-auto mt-3 text-gray-600">
-            Dedicated leadership teams for each club coordinate activities, projects, and mentorship.
-          </p>
-          <div className="mt-6 flex justify-center">
-            <span className="inline-block w-20 h-1 rounded-full bg-blue-700" />
-          </div>
-        </div>
-      </section>
-
-      {/* Club sections */}
-      <div className="max-w-6xl mx-auto px-4 sm:px-6 pb-16 sm:pb-20 md:pb-24">
-        {clubSections.map((sec) => (
-          <Section key={sec.title} title={sec.title} Icon={sec.Icon} members={sec.members} />
-        ))}
-
-        {/* CTA */}
         <div className="mt-12 sm:mt-16 text-center">
           <a
             href="#contact"

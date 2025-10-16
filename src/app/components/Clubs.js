@@ -1,8 +1,8 @@
 export default function Clubs() {
   const clubs = [
-    { name: "Media Club", image: "https://source.unsplash.com/400x250/?media,communication" },
-    { name: "English Club", image: "https://source.unsplash.com/400x250/?english,speech" },
-    { name: "Social & Adventure Club", image: "https://source.unsplash.com/400x250/?adventure,community" },
+    { name: "Media Club", image: "https://images.seeklogo.com/logo-png/18/1/logo-com-hr-logo-png_seeklogo-186226.png" },
+    { name: "English Club", image: "https://images.seeklogo.com/logo-png/18/1/logo-com-hr-logo-png_seeklogo-186226.png" },
+    { name: "Social & Adventure Club", image: "https://images.seeklogo.com/logo-png/18/1/logo-com-hr-logo-png_seeklogo-186226.png" },
   ];
 
   return (

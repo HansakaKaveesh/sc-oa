@@ -17,7 +17,7 @@ export default function CatchUps() {
     {
       title: "Study Support — Build your Confidence",
       text: "Join our upcoming peer‑learning sessions organized by OCSC tutors. Learn collaboratively and strengthen your fundamentals.",
-      img: "https://fcsc.lk/images/study-support.jpg",
+      img: "https://www.udgamschool.com/wp-content/uploads/2023/05/dummy-image-grey-e1398449111870.jpg",
       link: "#",
       tag: "Academics",
     },

@@ -1,34 +1,35 @@
-import { FiCode, FiBookOpen, FiMusic, FiArrowRight, FiCalendar } from 'react-icons/fi';
+import { FiMapPin,FiUsers, FiMusic, FiArrowRight, FiCalendar } from 'react-icons/fi';
 
 export default function WhatWeDo() {
   const activities = [
     {
-      title: 'Annual Trip',
-      img: 'https://www.sliit.lk/wp-content/uploads/2023/09/fcsc_build_up_wednesday.jpg',
-      text:
-        'Weekly workshops and discussions that strengthen technical skills and collaboration within the student community.',
-      icon: FiCode,
-      tag: 'Workshop',
-      accent: 'blue',
-    },
-    {
-      title: 'Study Support Sessions',
-      img: 'https://www.sliit.lk/wp-content/uploads/2023/11/fcsc_study_support.jpg',
-      text:
-        'Peer‑to‑peer support sessions helping students handle challenging subjects, share study strategies, and improve together.',
-      icon: FiBookOpen,
-      tag: 'Support',
-      accent: 'green',
-    },
-    {
-      title: 'Wirmaya',
-      img: 'https://www.sliit.lk/wp-content/uploads/2023/08/fcsc_wirmaya_event.jpg',
-      text:
-        'An annual talent show that spotlights creativity, diversity, and the artistic side of our computing students.',
-      icon: FiMusic,
-      tag: 'Event',
-      accent: 'purple',
-    },
+  title: 'Annual Trip',
+  img: 'wwd1.jpg',
+  text:
+    'A memorable getaway for students to relax, bond, and create unforgettable memories outside the classroom.',
+  icon: FiMapPin,
+  tag: 'Event',
+  accent: 'blue',
+},
+{
+  title: 'BIT Welcome Forum 2025',
+  img: 'wwd2.jpg',
+  text:
+    'A warm and energetic welcome event to greet the new batch of BIT students and introduce them to the campus community.',
+  icon: FiUsers,
+  tag: 'Forum',
+  accent: 'green',
+},
+{
+  title: "කොවුල් වසන්තය '25",
+  img: 'wwd3.jpg',
+  text:
+    'A cultural celebration filled with music, dance, and tradition — embracing the beauty of Sri Lankan student life.',
+  icon: FiMusic,
+  tag: 'Cultural Event',
+  accent: 'purple',
+},
+
   ];
 
   const badgeByAccent = {

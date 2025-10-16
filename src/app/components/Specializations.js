@@ -1,11 +1,13 @@
+import { FiBarChart2, FiCode, FiShield, FiServer, FiMonitor, FiCpu } from 'react-icons/fi';
+
 export default function Specializations() {
   const specs = [
-    "Data Science",
-    "Software Engineering",
-    "Cyber Security",
-    "Information Systems",
-    "Interactive Media",
-    "Information Technology",
+    { title: 'Data Science', icon: FiBarChart2 },
+    { title: 'Software Engineering', icon: FiCode },
+    { title: 'Cyber Security', icon: FiShield },
+    { title: 'Information Systems', icon: FiServer },
+    { title: 'Interactive Media', icon: FiMonitor },
+    { title: 'Information Technology', icon: FiCpu },
   ];
 
   return (
@@ -25,9 +27,9 @@ export default function Specializations() {
 
         {/* ---- Specialization bubbles ---- */}
         <ul className="flex flex-wrap justify-center gap-4 sm:gap-6">
-          {specs.map((s, index) => (
+          {specs.map(({ title, icon: Icon }) => (
             <li
-              key={index}
+              key={title}
               className="group relative bg-white shadow-md hover:shadow-lg border border-orange-100
                          rounded-full px-5 sm:px-8 py-3 sm:py-5 text-xs sm:text-sm md:text-base font-semibold text-gray-700
                          transition-all duration-300 transform hover:-translate-y-1 hover:bg-gradient-to-r
@@ -35,7 +37,15 @@ export default function Specializations() {
             >
               {/* Decorative ring */}
               <span className="absolute inset-0 rounded-full ring-2 ring-transparent group-hover:ring-orange-400 transition-all duration-500"></span>
-              <span className="relative z-10 whitespace-nowrap">{s}</span>
+
+              {/* Icon + label */}
+              <span className="relative z-10 flex items-center gap-2 whitespace-nowrap">
+                <Icon
+                  className="h-4 w-4 sm:h-5 sm:w-5 text-orange-600 transition-transform duration-300 group-hover:scale-110"
+                  aria-hidden
+                />
+                {title}
+              </span>
             </li>
           ))}
         </ul>

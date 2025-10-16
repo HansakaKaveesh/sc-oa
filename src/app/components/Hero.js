@@ -1,18 +1,37 @@
+"use client";
+
+import { useEffect, useState } from "react";
+
 export default function Hero() {
+  const images = [
+    "hero1.jpg",
+    "hero2.jpg",
+    "hero3.jpg",
+  ];
+
+  const [currentImage, setCurrentImage] = useState(0);
+
+  // Automatically change background image every 6 seconds
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrentImage((prev) => (prev + 1) % images.length);
+    }, 6000); // 6 seconds
+    return () => clearInterval(interval);
+  }, [images.length]);
+
   return (
     <section
       id="hero"
-      className="relative min-h-screen flex flex-col justify-center items-center bg-cover bg-center text-center text-gray-800 overflow-hidden"
+      className="relative min-h-screen flex flex-col justify-center items-center bg-cover bg-center text-center text-gray-800 overflow-hidden transition-all duration-1000 ease-in-out"
       style={{
-        backgroundImage:
-          "url('https://sankara.ac.in/polytechnic/wp-content/uploads/2023/07/committe-intro.jpg')",
-        backgroundAttachment: "scroll", // smoother on mobile
+        backgroundImage: `url(${images[currentImage]})`,
+        backgroundAttachment: "scroll",
       }}
     >
-      {/* Overlay for contrast and depth */}
-      <div className="absolute inset-0 bg-gradient-to-b from-white/90 via-blue-50/70 to-white/90 backdrop-blur-[2px]"></div>
+      {/* Overlay for contrast */}
+      <div className="absolute inset-0 bg-gradient-to-b from-white/90 via-blue-50/70 to-white/90 backdrop-blur-[1px]"></div>
 
-      {/* Content wrapper centered both ways */}
+      {/* Content */}
       <div className="relative z-10 max-w-6xl px-4 sm:px-6 animate-fadeIn">
         {/* Logo */}
         <div className="mb-6 sm:mb-8 drop-shadow-xl animate-fadeDown">
@@ -24,16 +43,16 @@ export default function Hero() {
         </div>
 
         {/* Heading */}
-<h1 className="text-3xl sm:text-4xl md:text-6xl font-extrabold font-serif tracking-tight text-blue-900 leading-snug sm:leading-tight drop-shadow-sm">
-  OpenArc Campus <br className="hidden sm:block" />
-  <span className="text-blue-500 bg-gradient-to-r from-blue-600 to-blue-400 bg-clip-text text-transparent">
-    Student Council
-  </span>
-</h1>
+        <h1 className="text-3xl sm:text-4xl md:text-6xl font-extrabold font-serif tracking-tight text-blue-900 leading-snug sm:leading-tight drop-shadow-sm">
+          OpenArc Campus <br className="hidden sm:block" />
+          <span className="text-blue-500 bg-gradient-to-r from-blue-600 to-blue-400 bg-clip-text text-transparent">
+            Student Council
+          </span>
+        </h1>
 
         {/* Subtext */}
         <p className="max-w-md sm:max-w-2xl mx-auto mt-5 sm:mt-7 text-gray-700 text-base sm:text-lg md:text-xl leading-relaxed">
-          The heart of student leadership at OpenArc — uniting passionate
+          The heart of student leadership at OpenArc — uniting passionate
           innovators, collaborators, and creators to grow together through
           learning and shared vision.
         </p>

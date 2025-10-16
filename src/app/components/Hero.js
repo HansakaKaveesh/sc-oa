@@ -1,21 +1,28 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import AOS from "aos";
+import "aos/dist/aos.css";
 
 export default function Hero() {
-  const images = [
-    "/hero1.jpg",
-    "/hero2.jpg",
-    "/hero3.jpg",
-  ];
-
+  const images = ["/hero1.jpg", "/hero2.jpg", "/hero3.jpg"];
   const [currentImage, setCurrentImage] = useState(0);
 
-  // Automatically change background image every 6 seconds
+  // Init AOS on mount
+  useEffect(() => {
+    AOS.init({
+      duration: 700,
+      easing: "ease-out-cubic",
+      once: true,      // animate only once
+      offset: 60,
+    });
+  }, []);
+
+  // Automatically change background image every 2 seconds
   useEffect(() => {
     const interval = setInterval(() => {
       setCurrentImage((prev) => (prev + 1) % images.length);
-    }, 2000); // 3 seconds
+    }, 2000);
     return () => clearInterval(interval);
   }, [images.length]);
 
@@ -32,9 +39,13 @@ export default function Hero() {
       <div className="absolute inset-0 bg-gradient-to-b from-white/90 via-blue-50/70 to-white/90 backdrop-blur-[1px]"></div>
 
       {/* Content */}
-      <div className="relative z-10 max-w-6xl px-4 sm:px-6 animate-fadeIn">
+      <div className="relative z-10 max-w-6xl px-4 sm:px-6">
         {/* Logo */}
-        <div className="mb-6 sm:mb-8 drop-shadow-xl animate-fadeDown">
+        <div
+          className="mb-6 sm:mb-8 drop-shadow-xl"
+          data-aos="fade-down"
+          data-aos-delay="0"
+        >
           <img
             src="/Logo SCOC.png"
             alt="OCSC logo"
@@ -43,7 +54,11 @@ export default function Hero() {
         </div>
 
         {/* Heading */}
-        <h1 className="text-3xl sm:text-4xl md:text-6xl font-extrabold font-serif tracking-tight text-blue-900 leading-snug sm:leading-tight drop-shadow-sm">
+        <h1
+          className="text-3xl sm:text-4xl md:text-6xl font-extrabold font-serif tracking-tight text-blue-900 leading-snug sm:leading-tight drop-shadow-sm"
+          data-aos="fade-up"
+          data-aos-delay="100"
+        >
           OpenArc Campus <br className="hidden sm:block" />
           <span className="text-blue-500 bg-gradient-to-r from-blue-600 to-blue-400 bg-clip-text text-transparent">
             Student Council
@@ -51,14 +66,22 @@ export default function Hero() {
         </h1>
 
         {/* Subtext */}
-        <p className="max-w-md sm:max-w-2xl mx-auto mt-5 sm:mt-7 text-gray-700 text-base sm:text-lg md:text-xl leading-relaxed">
+        <p
+          className="max-w-md sm:max-w-2xl mx-auto mt-5 sm:mt-7 text-gray-700 text-base sm:text-lg md:text-xl leading-relaxed"
+          data-aos="fade-up"
+          data-aos-delay="200"
+        >
           The heart of student leadership at OpenArc — uniting passionate
           innovators, collaborators, and creators to grow together through
           learning and shared vision.
         </p>
 
         {/* Buttons */}
-        <div className="mt-10 sm:mt-12 flex flex-col sm:flex-row justify-center gap-4 sm:gap-6">
+        <div
+          className="mt-10 sm:mt-12 flex flex-col sm:flex-row justify-center gap-4 sm:gap-6"
+          data-aos="zoom-in"
+          data-aos-delay="300"
+        >
           <a
             href="#about"
             className="px-7 py-3 sm:px-8 sm:py-2 bg-blue-700 text-white font-semibold rounded-lg shadow-lg 

@@ -132,7 +132,7 @@ export default function Navbar() {
                   <div
                     id="clubs-dropdown"
                     role="menu"
-                    className="absolute left-0 top-7 bg-white border border-gray-200 shadow-lg rounded-md py-2 w-56 animate-fadeDown"
+                    className="absolute left-0 top-5 bg-white border border-gray-200 shadow-lg rounded-md py-2 w-56 animate-fadeDown"
                   >
                     {clubs.map((club) => (
                       <Link

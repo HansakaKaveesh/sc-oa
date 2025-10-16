@@ -1,4 +1,19 @@
+"use client";
+
+import { useEffect } from "react";
+import AOS from "aos";
+import "aos/dist/aos.css";
+
 export default function CatchUps() {
+  useEffect(() => {
+    AOS.init({
+      duration: 700,
+      easing: "ease-out-cubic",
+      once: true,
+      offset: 60,
+    });
+  }, []);
+
   const updates = [
     {
       title: "Official Merchandise Pack 2025/26",
@@ -23,6 +38,10 @@ export default function CatchUps() {
     },
   ];
 
+  const baseDelay = 150;
+  const step = 120;
+  const dividerDelay = baseDelay + updates.length * step;
+
   return (
     <section
       id="catchups"
@@ -31,10 +50,18 @@ export default function CatchUps() {
       <div className="max-w-6xl mx-auto px-4 sm:px-6">
         {/* Section heading */}
         <div className="text-center mb-10 sm:mb-12">
-          <h2 className="text-2xl sm:text-3xl md:text-4xl font-extrabold text-gray-900 mb-3">
+          <h2
+            className="text-2xl sm:text-3xl md:text-4xl font-extrabold text-gray-900 mb-3"
+            data-aos="fade-up"
+            data-aos-delay="0"
+          >
             Catch <span className="text-blue-800">Ups</span>
           </h2>
-          <p className="text-gray-600 max-w-2xl mx-auto text-base sm:text-lg">
+          <p
+            className="text-gray-600 max-w-2xl mx-auto text-base sm:text-lg"
+            data-aos="fade-up"
+            data-aos-delay="100"
+          >
             Stay in the loop with our latest updates, events, and announcements
             happening across the OpenArc Campus.
           </p>
@@ -47,6 +74,8 @@ export default function CatchUps() {
               key={idx}
               href={item.link}
               className="group relative bg-white rounded-2xl overflow-hidden shadow-md hover:shadow-xl transition-all duration-500 flex flex-col"
+              data-aos="fade-up"
+              data-aos-delay={baseDelay + idx * step}
             >
               {/* Image */}
               <div className="overflow-hidden h-44 sm:h-52 md:h-56 flex-shrink-0">
@@ -54,6 +83,8 @@ export default function CatchUps() {
                   src={item.img}
                   alt={item.title}
                   className="object-cover w-full h-full transform group-hover:scale-110 transition-transform duration-700"
+                  loading="lazy"
+                  onLoad={() => AOS.refresh()}
                 />
               </div>
 
@@ -76,7 +107,11 @@ export default function CatchUps() {
         </div>
 
         {/* Decorative divider */}
-        <div className="mt-12 sm:mt-16 flex justify-center">
+        <div
+          className="mt-12 sm:mt-16 flex justify-center"
+          data-aos="fade-up"
+          data-aos-delay={dividerDelay}
+        >
           <span className="inline-block w-20 sm:w-24 h-1 rounded-full bg-blue-800"></span>
         </div>
       </div>

@@ -4,9 +4,9 @@ import { useEffect, useState } from "react";
 
 export default function Hero() {
   const images = [
-    "hero1.jpg",
-    "hero2.jpg",
-    "hero3.jpg",
+    "/hero1.jpg",
+    "/hero2.jpg",
+    "/hero3.jpg",
   ];
 
   const [currentImage, setCurrentImage] = useState(0);
@@ -36,7 +36,7 @@ export default function Hero() {
         {/* Logo */}
         <div className="mb-6 sm:mb-8 drop-shadow-xl animate-fadeDown">
           <img
-            src="Logo SCOC.png"
+            src="/Logo SCOC.png"
             alt="OCSC logo"
             className="rounded-xl mx-auto w-44 h-28 sm:w-80 sm:h-24 object-contain hover:scale-105 transition-transform duration-700 ease-out"
           />

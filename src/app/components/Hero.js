@@ -8,17 +8,15 @@ export default function Hero() {
   const images = ["/hero1.jpg", "/hero2.jpg", "/hero3.jpg"];
   const [currentImage, setCurrentImage] = useState(0);
 
-  // Init AOS on mount
   useEffect(() => {
     AOS.init({
       duration: 700,
       easing: "ease-out-cubic",
-      once: true,      // animate only once
+      once: true,
       offset: 60,
     });
   }, []);
 
-  // Automatically change background image every 2 seconds
   useEffect(() => {
     const interval = setInterval(() => {
       setCurrentImage((prev) => (prev + 1) % images.length);
@@ -35,21 +33,32 @@ export default function Hero() {
         backgroundAttachment: "scroll",
       }}
     >
-      {/* Overlay for contrast */}
+      {/* Overlay gradient */}
       <div className="absolute inset-0 bg-gradient-to-b from-white/90 via-blue-50/70 to-white/90 backdrop-blur-[1px]"></div>
+
+      {/* Pattern overlay (subtle dots or shapes) */}
+      <div
+        className="absolute inset-0 opacity-20 pointer-events-none"
+        style={{
+          backgroundImage:
+            "url('https://www.toptal.com/designers/subtlepatterns/uploads/dot-grid.png')",
+          backgroundSize: "auto",
+          backgroundRepeat: "repeat",
+        }}
+      ></div>
 
       {/* Content */}
       <div className="relative z-10 max-w-6xl px-4 sm:px-6">
         {/* Logo */}
         <div
-          className="mb-6 sm:mb-8 drop-shadow-xl"
+          className="mb-4 sm:mb-4 drop-shadow-xl mt-10"
           data-aos="fade-down"
           data-aos-delay="0"
         >
           <img
             src="/Logo SCOC.png"
             alt="OCSC logo"
-            className="rounded-xl mx-auto w-44 h-28 sm:w-80 sm:h-24 object-contain hover:scale-105 transition-transform duration-700 ease-out"
+            className="rounded-xl mx-auto w-64 h-36 sm:w-84 sm:h-36 object-contain hover:scale-105 transition-transform duration-700 ease-out"
           />
         </div>
 

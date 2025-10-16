@@ -54,7 +54,7 @@ export default function Footer() {
         {/* ---------- Column 3 ---------- */}
         <div>
           <h4 className="text-gray-900 font-semibold mb-3">Connect With Us</h4>
-          <div className="flex justify-center md:justify-start gap-4 text-orange-500 text-xl mb-4">
+          <div className="flex justify-center md:justify-start gap-4 text-blue-800 text-xl mb-4">
             {social.map((s, i) => (
               <a
                 key={i}
@@ -85,13 +85,13 @@ export default function Footer() {
       {/* Bottom copyright */}
       <div className="text-center py-5 text-xs text-gray-500">
         © {new Date().getFullYear()} 
-        <span className="font-medium text-orange-600">OpenArc Campus Student Community (OCSC)</span>. 
+        <span className="font-medium text-blue-600">OpenArc Campus Student Community (OCSC)</span>. 
         All Rights Reserved.
       </div>
 
       {/* Decorative corner wave */}
       <svg
-        className="absolute top-0 left-0 w-full h-6 text-orange-100"
+        className="absolute top-0 left-0 w-full h-6 text-blue-100"
         xmlns="http://www.w3.org/2000/svg"
         viewBox="0 0 1440 100"
         preserveAspectRatio="none"

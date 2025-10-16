@@ -13,7 +13,7 @@ export default function Clubs() {
       <div className="max-w-6xl mx-auto px-4 sm:px-6 text-center">
         {/* ---- Title ---- */}
         <h2 className="text-2xl sm:text-3xl md:text-4xl font-extrabold text-gray-900 mb-3">
-          Our <span className="text-orange-600">Clubs &amp; Societies</span>
+          Our <span className="text-blue-800">Clubs &amp; Societies</span>
         </h2>
         <p className="max-w-2xl mx-auto text-gray-600 mb-10 sm:mb-12 text-base sm:text-lg">
           OCSC unites all student‑driven communities under one umbrella — connecting passionate learners,
@@ -53,7 +53,7 @@ export default function Clubs() {
 
         {/* Decorative divider */}
         <div className="mt-12 sm:mt-16 flex justify-center">
-          <span className="inline-block w-20 sm:w-24 h-1 rounded-full bg-orange-500"></span>
+          <span className="inline-block w-20 sm:w-24 h-1 rounded-full bg-blue-800"></span>
         </div>
       </div>
     </section>

@@ -32,7 +32,7 @@ export default function CatchUps() {
         {/* Section heading */}
         <div className="text-center mb-10 sm:mb-12">
           <h2 className="text-2xl sm:text-3xl md:text-4xl font-extrabold text-gray-900 mb-3">
-            Catch <span className="text-orange-600">Ups</span>
+            Catch <span className="text-blue-800">Ups</span>
           </h2>
           <p className="text-gray-600 max-w-2xl mx-auto text-base sm:text-lg">
             Stay in the loop with our latest updates, events, and announcements
@@ -77,7 +77,7 @@ export default function CatchUps() {
 
         {/* Decorative divider */}
         <div className="mt-12 sm:mt-16 flex justify-center">
-          <span className="inline-block w-20 sm:w-24 h-1 rounded-full bg-orange-500"></span>
+          <span className="inline-block w-20 sm:w-24 h-1 rounded-full bg-blue-800"></span>
         </div>
       </div>
     </section>

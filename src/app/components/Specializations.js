@@ -18,7 +18,7 @@ export default function Specializations() {
       <div className="max-w-6xl mx-auto px-4 sm:px-6 text-center">
         {/* ---- Title ---- */}
         <h2 className="text-2xl sm:text-3xl md:text-4xl font-extrabold text-gray-900 mb-4">
-          Our <span className="text-orange-600">Specializations</span>
+          Our <span className="text-blue-800">Specializations</span>
         </h2>
         <p className="max-w-2xl mx-auto text-gray-600 mb-10 sm:mb-12 text-base sm:text-lg">
           The OpenArc Campus offers diverse fields of study that nurture expertise
@@ -41,7 +41,7 @@ export default function Specializations() {
               {/* Icon + label */}
               <span className="relative z-10 flex items-center gap-2 whitespace-nowrap">
                 <Icon
-                  className="h-4 w-4 sm:h-5 sm:w-5 text-orange-600 transition-transform duration-300 group-hover:scale-110"
+                  className="h-4 w-4 sm:h-5 sm:w-5 text-blue-600 transition-transform duration-300 group-hover:scale-110"
                   aria-hidden
                 />
                 {title}
@@ -52,7 +52,7 @@ export default function Specializations() {
 
         {/* ---- Decorative divider ---- */}
         <div className="mt-12 sm:mt-16 flex justify-center">
-          <span className="inline-block w-20 sm:w-24 h-1 rounded-full bg-orange-500"></span>
+          <span className="inline-block w-20 sm:w-24 h-1 rounded-full bg-blue-800"></span>
         </div>
       </div>
     </section>

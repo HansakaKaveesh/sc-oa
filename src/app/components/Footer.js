@@ -14,7 +14,7 @@ export default function Footer() {
         {/* ---------- Column 1 ---------- */}
         <div>
           <img
-            src="Logo SCOC.png"
+            src="/Logo SCOC.png"
             alt="Logo"
             className="h-10 mx-auto md:mx-0 mb-4"
           />

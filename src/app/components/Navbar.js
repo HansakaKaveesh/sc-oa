@@ -21,7 +21,7 @@ export default function Navbar() {
 
   const menuItems = [
     { name: "Home", href: "/" },
-    { name: "Events", href: "/#whatwedo" },
+    { name: "Events", href: "/events" },
     { name: "Committee", href: "/committee" },
     { name: "Clubs", href: "#clubs" }, // dropdown trigger
     { name: "Gallery", href: "/#gallery" },

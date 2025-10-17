@@ -1,3 +1,9 @@
+"use client";
+
+import { useEffect } from "react";
+import AOS from "aos";
+import "aos/dist/aos.css";
+
 import {
   FiLinkedin,
   FiGithub,
@@ -22,10 +28,14 @@ function initialsFromName(name = '') {
     .toUpperCase();
 }
 
-function MemberCard({ member }) {
+function MemberCard({ member, delay = 0 }) {
   const { name, role, image, email, linkedin, github } = member;
   return (
-    <div className="group bg-white/80 backdrop-blur-sm rounded-2xl border border-gray-100 shadow-md hover:shadow-xl transition-all duration-300 hover:-translate-y-1 p-5 flex flex-col items-center text-center">
+    <div
+      className="group bg-white/80 backdrop-blur-sm rounded-2xl border border-gray-100 shadow-md hover:shadow-xl transition-all duration-300 hover:-translate-y-1 p-5 flex flex-col items-center text-center"
+      data-aos="fade-up"
+      data-aos-delay={delay}
+    >
       <div className="relative mb-4">
         <div className="h-20 w-20 rounded-full overflow-hidden ring-4 ring-blue-50 bg-gradient-to-br from-blue-100 to-blue-50 flex items-center justify-center">
           {image ? (
@@ -34,6 +44,7 @@ function MemberCard({ member }) {
               alt={`${name} portrait`}
               className="h-full w-full object-cover"
               loading="lazy"
+              onLoad={() => AOS.refresh()}
             />
           ) : (
             <span className="text-blue-700 font-bold">{initialsFromName(name)}</span>
@@ -87,7 +98,11 @@ function MemberCard({ member }) {
 function Section({ title, Icon, members }) {
   return (
     <section className="mt-10">
-      <div className="flex items-center justify-center gap-3 mb-6">
+      <div
+        className="flex items-center justify-center gap-3 mb-6"
+        data-aos="fade-up"
+        data-aos-delay="0"
+      >
         <span className="inline-flex items-center justify-center h-9 w-9 rounded-lg bg-blue-50 text-blue-700">
           <Icon className="h-5 w-5" />
         </span>
@@ -95,8 +110,8 @@ function Section({ title, Icon, members }) {
       </div>
 
       <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
-        {members.map((m) => (
-          <MemberCard key={m.name} member={m} />
+        {members.map((m, idx) => (
+          <MemberCard key={m.name} member={m} delay={150 + idx * 100} />
         ))}
       </div>
     </section>
@@ -104,9 +119,13 @@ function Section({ title, Icon, members }) {
 }
 
 // Small card for each join step
-function StepCard({ Icon, title, text }) {
+function StepCard({ Icon, title, text, delay = 0 }) {
   return (
-    <div className="group bg-white/80 backdrop-blur-sm rounded-2xl border border-gray-100 shadow-md hover:shadow-xl transition-all duration-300 hover:-translate-y-1 p-5">
+    <div
+      className="group bg-white/80 backdrop-blur-sm rounded-2xl border border-gray-100 shadow-md hover:shadow-xl transition-all duration-300 hover:-translate-y-1 p-5"
+      data-aos="fade-up"
+      data-aos-delay={delay}
+    >
       <div className="flex items-center gap-3">
         <span className="inline-flex items-center justify-center h-10 w-10 rounded-lg bg-blue-50 text-blue-700">
           <Icon className="h-5 w-5" />
@@ -143,9 +162,16 @@ function JoinSection() {
     },
   ];
 
+  const baseDelay = 150;
+  const step = 120;
+
   return (
     <section id="join" className="mt-14">
-      <div className="flex items-center justify-center gap-3 mb-6">
+      <div
+        className="flex items-center justify-center gap-3 mb-6"
+        data-aos="fade-up"
+        data-aos-delay="0"
+      >
         <span className="inline-flex items-center justify-center h-9 w-9 rounded-lg bg-blue-50 text-blue-700">
           <FiUserPlus className="h-5 w-5" />
         </span>
@@ -153,7 +179,7 @@ function JoinSection() {
       </div>
 
       <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-4">
-        {steps.map((s) =>
+        {steps.map((s, idx) =>
           s.title === 'Fill the form' ? (
             <a
               key={s.title}
@@ -164,15 +190,19 @@ function JoinSection() {
               aria-label="Open Google Form to join the Media Club"
               title="Open Google Form"
             >
-              <StepCard Icon={s.Icon} title={s.title} text={s.text} />
+              <StepCard Icon={s.Icon} title={s.title} text={s.text} delay={baseDelay + idx * step} />
             </a>
           ) : (
-            <StepCard key={s.title} Icon={s.Icon} title={s.title} text={s.text} />
+            <StepCard key={s.title} Icon={s.Icon} title={s.title} text={s.text} delay={baseDelay + idx * step} />
           )
         )}
       </div>
 
-      <div className="mt-8 text-center">
+      <div
+        className="mt-8 text-center"
+        data-aos="zoom-in"
+        data-aos-delay={baseDelay + steps.length * step}
+      >
         <a
           href={GOOGLE_FORM_URL}
           target="_blank"
@@ -189,6 +219,15 @@ function JoinSection() {
 }
 
 export default function MediaClubPage() {
+  useEffect(() => {
+    AOS.init({
+      duration: 700,
+      easing: "ease-out-cubic",
+      once: true,
+      offset: 60,
+    });
+  }, []);
+
   const headerBgUrl = '/clubs/hero/media.jpg';
 
   const mediaClubTeam = [
@@ -207,23 +246,39 @@ export default function MediaClubPage() {
         <div className="absolute inset-0 bg-gradient-to-b from-white/70 via-blue-50/70 to-white/70 backdrop-blur-[2px]" />
 
         <div className="relative z-10 max-w-6xl mx-auto px-4 sm:px-6 mt-18">
-          <h1 className="text-3xl sm:text-4xl md:text-5xl font-extrabold text-gray-900">
+          <h1
+            className="text-3xl sm:text-4xl md:text-5xl font-extrabold text-gray-900"
+            data-aos="fade-up"
+            data-aos-delay="0"
+          >
             Media Club
           </h1>
-          <p className="max-w-2xl mx-auto mt-4 text-gray-600 text-base sm:text-lg">
+          <p
+            className="max-w-2xl mx-auto mt-4 text-gray-600 text-base sm:text-lg"
+            data-aos="fade-up"
+            data-aos-delay="100"
+          >
             Create, shoot, edit, and tell stories through film, photography, and design.
           </p>
-          <div className="mt-6 flex justify-center">
+          <div
+            className="mt-6 flex justify-center"
+            data-aos="fade-up"
+            data-aos-delay="200"
+          >
             <span className="inline-block w-24 h-1 rounded-full bg-blue-700" />
           </div>
         </div>
       </section>
 
       <div className="max-w-6xl mx-auto px-4 sm:px-6 pb-16 sm:pb-20 md:pb-24">
-        <Section title="Leadership" Icon={FiCamera} members={mediaClubTeam} />
+        <div data-aos="fade-up" data-aos-delay="100">
+          <Section title="Leadership" Icon={FiCamera} members={mediaClubTeam} />
+        </div>
 
         {/* Join procedure */}
-        <JoinSection />
+        <div data-aos="fade-up" data-aos-delay="150">
+          <JoinSection />
+        </div>
       </div>
     </main>
   );

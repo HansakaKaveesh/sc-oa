@@ -1,4 +1,9 @@
+"use client";
+
+import { useEffect } from "react";
 import { FiLinkedin, FiGithub, FiMail, FiAward, FiUsers } from 'react-icons/fi';
+import AOS from "aos";
+import "aos/dist/aos.css";
 
 function initialsFromName(name = '') {
   return name
@@ -9,10 +14,14 @@ function initialsFromName(name = '') {
     .toUpperCase();
 }
 
-function MemberCard({ member }) {
+function MemberCard({ member, delay = 0 }) {
   const { name, role, image, email, linkedin, github } = member;
   return (
-    <div className="group bg-white/80 backdrop-blur-sm rounded-2xl border border-gray-100 shadow-md hover:shadow-xl transition-all duration-300 hover:-translate-y-1 p-5 flex flex-col items-center text-center">
+    <div
+      className="group bg-white/80 backdrop-blur-sm rounded-2xl border border-gray-100 shadow-md hover:shadow-xl transition-all duration-300 hover:-translate-y-1 p-5 flex flex-col items-center text-center"
+      data-aos="fade-up"
+      data-aos-delay={delay}
+    >
       {/* Avatar */}
       <div className="relative mb-4">
         <div className="h-20 w-20 rounded-full overflow-hidden ring-4 ring-blue-50 bg-gradient-to-br from-blue-100 to-blue-50 flex items-center justify-center">
@@ -22,6 +31,7 @@ function MemberCard({ member }) {
               alt={`${name} portrait`}
               className="h-full w-full object-cover"
               loading="lazy"
+              onLoad={() => AOS.refresh()}
             />
           ) : (
             <span className="text-blue-700 font-bold">{initialsFromName(name)}</span>
@@ -77,7 +87,11 @@ function MemberCard({ member }) {
 function Section({ title, Icon, members }) {
   return (
     <section className="mt-10">
-      <div className="flex items-center justify-center gap-3 mb-6">
+      <div
+        className="flex items-center justify-center gap-3 mb-6"
+        data-aos="fade-up"
+        data-aos-delay="0"
+      >
         <span className="inline-flex items-center justify-center h-9 w-9 rounded-lg bg-blue-50 text-blue-700">
           <Icon className="h-5 w-5" />
         </span>
@@ -85,8 +99,8 @@ function Section({ title, Icon, members }) {
       </div>
 
       <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
-        {members.map((m) => (
-          <MemberCard key={m.name} member={m} />
+        {members.map((m, idx) => (
+          <MemberCard key={m.name} member={m} delay={150 + idx * 100} />
         ))}
       </div>
     </section>
@@ -94,6 +108,15 @@ function Section({ title, Icon, members }) {
 }
 
 export default function CommitteePage() {
+  useEffect(() => {
+    AOS.init({
+      duration: 700,
+      easing: "ease-out-cubic",
+      once: true,
+      offset: 60,
+    });
+  }, []);
+
   const year = '2024/25';
   const headerBgUrl = '/hero2.jpg';
 
@@ -143,14 +166,26 @@ export default function CommitteePage() {
         <div className="absolute inset-0 bg-gradient-to-b from-white/70 via-blue-50/70 to-white/70 backdrop-blur-[2px]" />
 
         <div className="relative z-10 max-w-6xl mx-auto px-4 sm:px-6 mt-18">
-          <h1 className="text-3xl sm:text-4xl md:text-5xl font-extrabold text-gray-900">
+          <h1
+            className="text-3xl sm:text-4xl md:text-5xl font-extrabold text-gray-900"
+            data-aos="fade-up"
+            data-aos-delay="0"
+          >
             Student Council Committee <span className="text-blue-700">{year}</span>
           </h1>
-          <p className="max-w-2xl mx-auto mt-4 text-gray-600 text-base sm:text-lg">
+          <p
+            className="max-w-2xl mx-auto mt-4 text-gray-600 text-base sm:text-lg"
+            data-aos="fade-up"
+            data-aos-delay="100"
+          >
             Meet the team behind OCSC—planning events, leading initiatives, and supporting
             students across the campus.
           </p>
-          <div className="mt-6 flex justify-center">
+          <div
+            className="mt-6 flex justify-center"
+            data-aos="fade-up"
+            data-aos-delay="200"
+          >
             <span className="inline-block w-24 h-1 rounded-full bg-blue-700" />
           </div>
         </div>
@@ -158,11 +193,13 @@ export default function CommitteePage() {
 
       {/* Committee sections + CTA */}
       <div className="max-w-6xl mx-auto px-4 sm:px-6 pb-16 sm:pb-20 md:pb-24">
-        {committeeSections.map((sec) => (
-          <Section key={sec.title} title={sec.title} Icon={sec.Icon} members={sec.members} />
+        {committeeSections.map((sec, i) => (
+          <div key={sec.title} data-aos="fade-up" data-aos-delay={100 + i * 80}>
+            <Section title={sec.title} Icon={sec.Icon} members={sec.members} />
+          </div>
         ))}
 
-        <div className="mt-12 sm:mt-16 text-center">
+        <div className="mt-12 sm:mt-16 text-center" data-aos="zoom-in" data-aos-delay="100">
           <a
             href="#contact"
             className="inline-flex items-center gap-2 px-6 py-3 bg-blue-700 text-white rounded-lg shadow-sm hover:bg-blue-800 transition-colors"

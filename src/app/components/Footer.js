@@ -19,7 +19,8 @@ export default function Footer() {
             className="h-10 mx-auto md:mx-0 mb-4"
           />
           <p className="text-gray-700 text-sm leading-relaxed">
-            OpenArc Campus Student Community (OCSC)<br />
+            OpenArc Campus Student Community (OCSC)
+            <br />
             A collaborative platform connecting students, innovation, and technology.
           </p>
         </div>
@@ -30,22 +31,22 @@ export default function Footer() {
           <ul className="space-y-2 text-sm">
             <li>
               <a href="#about" className="text-gray-600 hover:text-orange-600 transition">
-                About Us
+                About Us
               </a>
             </li>
             <li>
               <a href="#whatwedo" className="text-gray-600 hover:text-orange-600 transition">
-                What We Do
+                What We Do
               </a>
             </li>
             <li>
               <a href="#clubs" className="text-gray-600 hover:text-orange-600 transition">
-                Clubs & Societies
+                Clubs & Societies
               </a>
             </li>
             <li>
               <a href="#catchups" className="text-gray-600 hover:text-orange-600 transition">
-                Catch Ups
+                Catch Ups
               </a>
             </li>
           </ul>
@@ -53,7 +54,7 @@ export default function Footer() {
 
         {/* ---------- Column 3 ---------- */}
         <div>
-          <h4 className="text-gray-900 font-semibold mb-3">Connect With Us</h4>
+          <h4 className="text-gray-900 font-semibold mb-3">Connect With Us</h4>
           <div className="flex justify-center md:justify-start gap-4 text-blue-800 text-xl mb-4">
             {social.map((s, i) => (
               <a
@@ -69,12 +70,13 @@ export default function Footer() {
             ))}
           </div>
           <p className="text-sm text-gray-600">
-            <strong>Email:</strong> <a href="mailto:ocsc@openarc.edu.lk" className="hover:text-orange-600">
+            <strong>Email:</strong>{" "}
+            <a href="mailto:ocsc@openarc.edu.lk" className="hover:text-orange-600">
               ocsc@openarc.edu.lk
             </a>
           </p>
           <p className="text-sm text-gray-600">
-            <strong>Phone:</strong> +94 11 754 4801
+            <strong>Phone:</strong> +94 11 754 4801
           </p>
         </div>
       </div>
@@ -84,9 +86,16 @@ export default function Footer() {
 
       {/* Bottom copyright */}
       <div className="text-center py-5 text-xs text-gray-500">
-        © {new Date().getFullYear()} 
-        <span className="font-medium text-blue-600">OpenArc Campus Student Community (OCSC)</span>. 
-        All Rights Reserved.
+        © {new Date().getFullYear()} 
+        <span className="font-medium text-blue-600">
+          Student Council OpenArc Campus (OCSC)
+        </span>
+        . All Rights Reserved.
+        <br />
+        <span className="text-gray-500 mt-1 inline-block">
+          Designed and Developed by 
+          <span className="font-semi text-orange-600">Hansaka Wijesinghe</span>
+        </span>
       </div>
 
       {/* Decorative corner wave */}
@@ -96,10 +105,7 @@ export default function Footer() {
         viewBox="0 0 1440 100"
         preserveAspectRatio="none"
       >
-        <path
-          fill="currentColor"
-          d="M0,100 C480,0 960,150 1440,0 L1440,100 Z"
-        ></path>
+        <path fill="currentColor" d="M0,100 C480,0 960,150 1440,0 L1440,100 Z"></path>
       </svg>
     </footer>
   );

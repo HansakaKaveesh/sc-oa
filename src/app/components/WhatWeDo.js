@@ -18,7 +18,7 @@ export default function WhatWeDo() {
   const activities = [
     {
       title: "Annual Trip",
-      img: "wwd1.jpg",
+      img: "/wwd1.jpg",
       text:
         "A memorable getaway for students to relax, bond, and create unforgettable memories outside the classroom.",
       icon: FiMapPin,
@@ -27,7 +27,7 @@ export default function WhatWeDo() {
     },
     {
       title: "BIT Welcome Forum 2025",
-      img: "wwd2.jpg",
+      img: "/wwd2.jpg",
       text:
         "A warm and energetic welcome event to greet the new batch of BIT students and introduce them to the campus community.",
       icon: FiUsers,
@@ -36,7 +36,7 @@ export default function WhatWeDo() {
     },
     {
       title: "කොවුල් වසන්තය '25",
-      img: "wwd3.jpg",
+      img: "/wwd3.jpg",
       text:
         "A cultural celebration filled with music, dance, and tradition — embracing the beauty of Sri Lankan student life.",
       icon: FiMusic,

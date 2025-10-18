@@ -24,8 +24,8 @@ export default function Navbar() {
     { name: "Events", href: "/events" },
     { name: "Committee", href: "/committee" },
     { name: "Clubs", href: "#clubs" }, // dropdown trigger
-    { name: "Gallery", href: "/#gallery" },
-    { name: "Contact", href: "/#catchups" },
+    { name: "Gallery", href: "/gallery" },
+    { name: "Contact", href: "/contact" },
   ];
 
   const clubs = [

@@ -18,14 +18,14 @@ export default function CatchUps() {
     {
       title: "Official Merchandise Pack 2025/26",
       text: "Your exclusive hoodie, t‑shirt, and accessories are now available at all centers. Grab your limited edition pack today!",
-      img: "Post.png",
+      img: "/Post.png",
       link: "#",
       tag: "Merch Drop",
     },
     {
       title: "OpenArc Annual Trip 2025",
       text: "A day full of fun, learning, and adventure! Join us as we explore Ambuluwa Tower, Kadugannawa Tea Factory, and Peradeniya University.",
-      img: "Trip.png",
+      img: "/Trip.png",
       link: "#",
       tag: "Event Highlights",
     },

@@ -1,15 +1,15 @@
 "use client";
 
 import { useEffect } from "react";
-import { FiLinkedin, FiGithub, FiMail, FiAward, FiUsers } from 'react-icons/fi';
+import { FiLinkedin, FiGithub, FiMail, FiAward, FiUsers } from "react-icons/fi";
 import AOS from "aos";
 import "aos/dist/aos.css";
 
-function initialsFromName(name = '') {
+function initialsFromName(name = "") {
   return name
-    .split(' ')
+    .split(" ")
     .map((n) => n[0])
-    .join('')
+    .join("")
     .slice(0, 2)
     .toUpperCase();
 }
@@ -18,7 +18,7 @@ function MemberCard({ member, delay = 0 }) {
   const { name, role, image, email, linkedin, github } = member;
   return (
     <div
-      className="group bg-white/80 backdrop-blur-sm rounded-2xl border border-gray-100 shadow-md hover:shadow-xl transition-all duration-300 hover:-translate-y-1 p-5 flex flex-col items-center text-center"
+      className="group bg-white/80 backdrop-blur-sm rounded-2xl border border-gray-100 shadow-md hover:shadow-xl transition-all duration-300 hover:-translate-y-1 p-5 flex flex-col items-center text-center w-64"
       data-aos="fade-up"
       data-aos-delay={delay}
     >
@@ -34,7 +34,7 @@ function MemberCard({ member, delay = 0 }) {
               onLoad={() => AOS.refresh()}
             />
           ) : (
-            <span className="text-blue-700 font-bold">{initialsFromName(name)}</span>
+            <span className="text-blue-700 font-bold text-lg">{initialsFromName(name)}</span>
           )}
         </div>
       </div>
@@ -52,7 +52,6 @@ function MemberCard({ member, delay = 0 }) {
             rel="noopener noreferrer"
             aria-label={`${name} on LinkedIn`}
             className="text-gray-500 hover:text-blue-700 transition-colors"
-            title="LinkedIn"
           >
             <FiLinkedin className="h-5 w-5" />
           </a>
@@ -64,7 +63,6 @@ function MemberCard({ member, delay = 0 }) {
             rel="noopener noreferrer"
             aria-label={`${name} on GitHub`}
             className="text-gray-500 hover:text-blue-700 transition-colors"
-            title="GitHub"
           >
             <FiGithub className="h-5 w-5" />
           </a>
@@ -74,7 +72,6 @@ function MemberCard({ member, delay = 0 }) {
             href={`mailto:${email}`}
             aria-label={`Email ${name}`}
             className="text-gray-500 hover:text-blue-700 transition-colors"
-            title="Email"
           >
             <FiMail className="h-5 w-5" />
           </a>
@@ -87,6 +84,7 @@ function MemberCard({ member, delay = 0 }) {
 function Section({ title, Icon, members }) {
   return (
     <section className="mt-10">
+      {/* Section Title */}
       <div
         className="flex items-center justify-center gap-3 mb-6"
         data-aos="fade-up"
@@ -98,7 +96,8 @@ function Section({ title, Icon, members }) {
         <h2 className="text-xl sm:text-2xl font-bold text-gray-900">{title}</h2>
       </div>
 
-      <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
+      {/* Centered Cards */}
+      <div className="flex flex-wrap items-center justify-center gap-6">
         {members.map((m, idx) => (
           <MemberCard key={m.name} member={m} delay={150 + idx * 100} />
         ))}
@@ -117,59 +116,56 @@ export default function CommitteePage() {
     });
   }, []);
 
-  const year = '2024/25';
-  const headerBgUrl = '/hero2.jpg';
+  const year = "2024/25";
+  const headerBgUrl = "/hero2.jpg";
 
-  // Committee sections only (clubs removed)
   const committeeSections = [
     {
-      title: 'Executive Committee',
+      title: "Executive Committee",
       Icon: FiAward,
       members: [
-        { name: 'Jerushan Jacob', role: 'President', image: 'dummy.webp' },
-        { name: 'Uvindu Eshan', role: 'Vice President', image: 'dummy.webp' },
-        { name: 'Chrishelle Natara', role: 'Secretary', image: 'dummy.webp' },
-        { name: 'Rashan', role: 'Vice Secretary', image: 'dummy.webp' },
-        { name: 'Hansaka Wijesinghe', role: 'Treasurer', image: 'dummy.webp' },
-        { name: 'Hansaja', role: 'Vice Treasurer', image: 'dummy.webp' },
+        { name: "Jerushan Jacob", role: "President", image: "dummy.webp" },
+        { name: "Uvindu Eshan", role: "Vice President", image: "dummy.webp" },
+        { name: "Chrishelle Natara", role: "Secretary", image: "dummy.webp" },
+        { name: "Rashan", role: "Vice Secretary", image: "dummy.webp" },
+        { name: "Hansaka Wijesinghe", role: "Treasurer", image: "dummy.webp" },
+        { name: "Hansaja", role: "Vice Treasurer", image: "dummy.webp" },
       ],
     },
     {
-      title: 'Committee Members',
+      title: "Committee Members",
       Icon: FiUsers,
       members: [
-        { name: 'Vinal', role: 'Member', image: 'dummy.webp' },
-        { name: 'Lakshan', role: 'Member', image: 'dummy.webp' },
-        { name: 'Sandaru', role: 'Member', image: 'dummy.webp' },
-        { name: 'Chamodhi', role: 'Member', image: 'dummy.webp' },
-        { name: 'Lahiru', role: 'Member', image: 'dummy.webp' },
-        { name: 'Dinidu', role: 'Member', image: 'dummy.webp' },
-        { name: 'Heshan', role: 'Member', image: 'dummy.webp' },
-        { name: 'Nirmani', role: 'Member', image: 'dummy.webp' },
-        { name: 'Sheika', role: 'Member', image: 'dummy.webp' },
-        { name: 'Sadeepa', role: 'Member', image: 'dummy.webp' },
-        { name: 'Nethmi', role: 'Member', image: 'dummy.webp' },
-        { name: 'Tharushi', role: 'Member', image: 'dummy.webp' },
-        { name: 'Ruhini', role: 'Member', image: 'dummy.webp' },
+        { name: "Vinal", role: "Member", image: "dummy.webp" },
+        { name: "Lakshan", role: "Member", image: "dummy.webp" },
+        { name: "Sandaru", role: "Member", image: "dummy.webp" },
+        { name: "Chamodhi", role: "Member", image: "dummy.webp" },
+        { name: "Lahiru", role: "Member", image: "dummy.webp" },
+        { name: "Dinidu", role: "Member", image: "dummy.webp" },
+        { name: "Heshan", role: "Member", image: "dummy.webp" },
+        { name: "Nirmani", role: "Member", image: "dummy.webp" },
+        { name: "Sheika", role: "Member", image: "dummy.webp" },
+        { name: "Sadeepa", role: "Member", image: "dummy.webp" },
+        { name: "Nethmi", role: "Member", image: "dummy.webp" },
+        { name: "Tharushi", role: "Member", image: "dummy.webp" },
+        { name: "Ruhini", role: "Member", image: "dummy.webp" },
       ],
     },
   ];
 
   return (
-    <main className="relative bg-gradient-to-b from-white via-gray-50 to-gray-100 ">
-      {/* Header with background image */}
+    <main className="relative bg-gradient-to-b from-white via-gray-50 to-gray-100">
+      {/* Header Section */}
       <section
         className="relative py-14 sm:py-18 md:py-28 text-center bg-cover bg-center bg-scroll md:bg-fixed overflow-hidden"
         style={{ backgroundImage: `url('${headerBgUrl}')` }}
       >
-        {/* Overlay for contrast */}
         <div className="absolute inset-0 bg-gradient-to-b from-white/70 via-blue-50/70 to-white/70 backdrop-blur-[2px]" />
 
         <div className="relative z-10 max-w-6xl mx-auto px-4 sm:px-6 mt-18">
           <h1
             className="text-3xl sm:text-4xl md:text-5xl font-extrabold text-gray-900"
             data-aos="fade-up"
-            data-aos-delay="0"
           >
             Student Council Committee <span className="text-blue-700">{year}</span>
           </h1>
@@ -181,17 +177,13 @@ export default function CommitteePage() {
             Meet the team behind OCSC—planning events, leading initiatives, and supporting
             students across the campus.
           </p>
-          <div
-            className="mt-6 flex justify-center"
-            data-aos="fade-up"
-            data-aos-delay="200"
-          >
+          <div className="mt-6 flex justify-center" data-aos="fade-up" data-aos-delay="200">
             <span className="inline-block w-24 h-1 rounded-full bg-blue-700" />
           </div>
         </div>
       </section>
 
-      {/* Committee sections + CTA */}
+      {/* Committee Sections */}
       <div className="max-w-6xl mx-auto px-4 sm:px-6 pb-16 sm:pb-20 md:pb-24">
         {committeeSections.map((sec, i) => (
           <div key={sec.title} data-aos="fade-up" data-aos-delay={100 + i * 80}>
@@ -199,6 +191,7 @@ export default function CommitteePage() {
           </div>
         ))}
 
+        {/* CTA Button */}
         <div className="mt-12 sm:mt-16 text-center" data-aos="zoom-in" data-aos-delay="100">
           <a
             href="#contact"

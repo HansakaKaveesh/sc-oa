@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect } from "react";
+import Link from "next/link";
 import AOS from "aos";
 import "aos/dist/aos.css";
 
@@ -14,10 +15,23 @@ export default function Clubs() {
     });
   }, []);
 
+  // Club details + links
   const clubs = [
-    { name: "Media Club", image: "https://images.seeklogo.com/logo-png/18/1/logo-com-hr-logo-png_seeklogo-186226.png" },
-    { name: "English Club", image: "https://images.seeklogo.com/logo-png/18/1/logo-com-hr-logo-png_seeklogo-186226.png" },
-    { name: "Social & Adventure Club", image: "https://images.seeklogo.com/logo-png/18/1/logo-com-hr-logo-png_seeklogo-186226.png" },
+    {
+      name: "Media Club",
+      image: "https://images.seeklogo.com/logo-png/18/1/logo-com-hr-logo-png_seeklogo-186226.png",
+      link: "/clubs/media",
+    },
+    {
+      name: "English Club",
+      image: "https://images.seeklogo.com/logo-png/18/1/logo-com-hr-logo-png_seeklogo-186226.png",
+      link: "/clubs/english",
+    },
+    {
+      name: "Social & Adventure Club",
+      image: "https://images.seeklogo.com/logo-png/18/1/logo-com-hr-logo-png_seeklogo-186226.png",
+      link: "/clubs/social",
+    },
   ];
 
   const baseDelay = 150;
@@ -43,15 +57,16 @@ export default function Clubs() {
           data-aos="fade-up"
           data-aos-delay="100"
         >
-          OCSC unites all student‑driven communities under one umbrella — connecting passionate learners,
+          OCSC unites all student-driven communities under one umbrella — connecting passionate learners,
           innovators, and creators across every field in computing.
         </p>
 
         {/* ---- Club Cards ---- */}
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 sm:gap-8 justify-items-center">
           {clubs.map((c, i) => (
-            <div
+            <Link
               key={i}
+              href={c.link}
               className="group relative bg-white rounded-xl shadow-md hover:shadow-xl overflow-hidden
                          transition-all duration-500 hover:-translate-y-2 border border-transparent 
                          hover:border-orange-300 cursor-pointer flex flex-col w-full max-w-sm h-64 sm:h-72"
@@ -78,7 +93,7 @@ export default function Clubs() {
 
               {/* Accent border ring */}
               <span className="absolute inset-0 rounded-xl ring-2 ring-transparent group-hover:ring-orange-400 transition-all duration-500"></span>
-            </div>
+            </Link>
           ))}
         </div>
 

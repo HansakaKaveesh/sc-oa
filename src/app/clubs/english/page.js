@@ -31,7 +31,7 @@ function MemberCard({ member, delay = 0 }) {
   const { name, role, image, email, linkedin, github } = member;
   return (
     <div
-      className="group bg-white/80 backdrop-blur-sm rounded-2xl border border-gray-100 shadow-md hover:shadow-xl transition-all duration-300 hover:-translate-y-1 p-5 flex flex-col items-center text-center"
+      className="group bg-white/80 backdrop-blur-sm rounded-2xl border border-gray-100 shadow-md hover:shadow-xl transition-all duration-300 hover:-translate-y-1 p-5 flex flex-col items-center text-center w-64"
       data-aos="fade-up"
       data-aos-delay={delay}
     >
@@ -108,7 +108,8 @@ function Section({ title, Icon, members }) {
         <h2 className="text-xl sm:text-2xl font-bold text-gray-900">{title}</h2>
       </div>
 
-      <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
+      {/* Center cards */}
+      <div className="flex flex-wrap items-center justify-center gap-6">
         {members.map((m, idx) => (
           <MemberCard key={m.name} member={m} delay={150 + idx * 100} />
         ))}
@@ -121,7 +122,7 @@ function Section({ title, Icon, members }) {
 function StepCard({ Icon, title, text, delay = 0 }) {
   return (
     <div
-      className="group bg-white/80 backdrop-blur-sm rounded-2xl border border-gray-100 shadow-md hover:shadow-xl transition-all duration-300 hover:-translate-y-1 p-5"
+      className="group bg-white/80 backdrop-blur-sm rounded-2xl border border-gray-100 shadow-md hover:shadow-xl transition-all duration-300 hover:-translate-y-1 p-5 w-64"
       data-aos="fade-up"
       data-aos-delay={delay}
     >
@@ -177,7 +178,8 @@ function JoinSection() {
         <h2 className="text-xl sm:text-2xl font-bold text-gray-900">Join the Club — Procedure</h2>
       </div>
 
-      <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-4">
+      {/* Center step cards */}
+      <div className="flex flex-wrap items-center justify-center gap-6">
         {steps.map((s, idx) =>
           s.title === 'Fill the form' ? (
             <a
@@ -226,14 +228,15 @@ export default function EnglishClubPage() {
   const headerBgUrl = '/clubs/hero/english.jpg';
 
   const englishClubTeam = [
-    { name: 'Ayesha Ranasinghe', role: 'Club Lead', image: '/dummy.webp' },
-    { name: 'Dilshan Perera', role: 'Co‑Lead', image: '/dummy.webp' },
-    { name: 'Tharushi Jayasekara', role: 'Coordinator', image: '/dummy.webp' },
-    { name: 'Ishara De Silva', role: 'Mentor', image: '/dummy.webp' },
+    { name: 'Hiruni Prabodha', role: 'President', image: '/dummy.webp' },
+    { name: 'Nethmi Dias', role: 'Secretary', image: '/dummy.webp' },
+    { name: 'Nisuli Jayasooriya', role: 'PR & Marketing', image: '/dummy.webp' },
+    { name: 'Chrishelle Natara', role: 'Executive Committee', image: '/dummy.webp' },
+    { name: 'Jerushan Daniel', role: 'Executive Committee', image: '/dummy.webp' },
   ];
 
   return (
-    <main className="relative bg-gradient-to-b from-white via-gray-50 to-gray-100 ">
+    <main className="relative bg-gradient-to-b from-white via-gray-50 to-gray-100">
       <section
         className="relative py-14 sm:py-18 md:py-28 text-center bg-cover bg-center bg-scroll md:bg-fixed overflow-hidden"
         style={{ backgroundImage: `url('${headerBgUrl}')` }}

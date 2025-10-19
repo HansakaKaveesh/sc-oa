@@ -11,7 +11,7 @@ export default function AdPopup({
   text = "EXCLUSIVE OPENARC CAMPUS WRISTBANDS.",
   imageSrc = "/ads/sample.jpg",   // Optional hero image
   ctaText = "Buy Now",
-  ctaHref = "/buy-wristband",
+  ctaHref = "https://forms.gle/FAmUD1HEe5byGS1m7",
   showCloseLabel = true,
 }) {
   const [open, setOpen] = useState(false);

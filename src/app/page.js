@@ -26,7 +26,7 @@ export default function Home() {
         text="EXCLUSIVE OPENARC CAMPUS WRISTBANDS."
         imageSrc="/WB post.png"
         ctaText="Buy Now"
-        ctaHref="/buy-wristband"
+        ctaHref="https://forms.gle/FAmUD1HEe5byGS1m7"
       />
     </>
   );

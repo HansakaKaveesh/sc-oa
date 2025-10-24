@@ -228,11 +228,11 @@ export default function EnglishClubPage() {
   const headerBgUrl = '/clubs/hero/english.jpg';
 
   const englishClubTeam = [
-    { name: 'Hiruni Prabodha', role: 'President', image: '/dummy.webp' },
+    { name: 'Hiruni Prabodha', role: 'President', image: '/unipics/english/IMG-20251024-WA0010.jpg' },
     { name: 'Nethmi Dias', role: 'Secretary', image: '/dummy.webp' },
-    { name: 'Nisuli Jayasooriya', role: 'PR & Marketing', image: '/dummy.webp' },
-    { name: 'Chrishelle Natara', role: 'Executive Committee', image: '/dummy.webp' },
-    { name: 'Jerushan Daniel', role: 'Executive Committee', image: '/dummy.webp' },
+    { name: 'Nisuli Jayasooriya', role: 'PR & Marketing', image: '/unipics/english/IMG-20251024-WA0008.jpg' },
+    { name: 'Chrishelle Natara', role: 'Executive Committee', image: '/unipics/comm/IMG-20251024-WA0011.jpg' },
+    { name: 'Jerushan Daniel', role: 'Executive Committee', image: '/unipics/comm/WhatsApp Image 2025-10-24 at 20.27.00_e8d7931c.jpg' },
   ];
 
   return (

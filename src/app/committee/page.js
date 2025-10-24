@@ -124,12 +124,12 @@ export default function CommitteePage() {
       title: "Executive Committee",
       Icon: FiAward,
       members: [
-        { name: "Jerushan Jacob", role: "President", image: "dummy.webp" },
-        { name: "Uvindu Eshan", role: "Vice President", image: "dummy.webp" },
-        { name: "Chrishelle Natara", role: "Secretary", image: "dummy.webp" },
-        { name: "Rashan", role: "Vice Secretary", image: "dummy.webp" },
-        { name: "Hansaka Wijesinghe", role: "Treasurer", image: "dummy.webp" },
-        { name: "Hansaja", role: "Vice Treasurer", image: "dummy.webp" },
+        { name: "Jerushan Jacob", role: "President", image: "/unipics/comm/WhatsApp Image 2025-10-24 at 20.27.00_e8d7931c.jpg" },
+        { name: "Uvindu Eshan", role: "Vice President", image: "/unipics/comm/IMG-20251024-WA0009.jpg" },
+        { name: "Chrishelle Natara", role: "Secretary", image: "/unipics/comm/IMG-20251024-WA0011.jpg" },
+        { name: "Rashan Shimaika", role: "Vice Secretary", image: "/unipics/comm/IMG-20251024-WA0015.jpg" },
+        { name: "Hansaka Wijesinghe", role: "Treasurer", image: "/unipics/comm/IMG_6646.jpg" },
+        { name: "Ganindu Hansaja", role: "Vice Treasurer", image: "/unipics/comm/WhatsApp Image 2025-10-24 at 10.47.08_c09161ad.jpg" },
       ],
     },
     {

@@ -1,29 +1,28 @@
 "use client";
 
 import { useEffect } from "react";
-import AOS from "aos";
-import "aos/dist/aos.css";
-
 import {
   FiLinkedin,
   FiGithub,
   FiMail,
+  FiCamera,
   FiUserPlus,
   FiClipboard,
   FiCalendar,
   FiMessageSquare,
   FiCheckCircle,
-  FiCamera,
-} from 'react-icons/fi';
+} from "react-icons/fi";
+import AOS from "aos";
+import "aos/dist/aos.css";
 
 // Replace with your actual Google Form URL
-const GOOGLE_FORM_URL = 'https://forms.gle/YOUR_FORM_ID';
+const GOOGLE_FORM_URL = "https://forms.gle/YOUR_FORM_ID";
 
-function initialsFromName(name = '') {
+function initialsFromName(name = "") {
   return name
-    .split(' ')
+    .split(" ")
     .map((n) => n[0])
-    .join('')
+    .join("")
     .slice(0, 2)
     .toUpperCase();
 }
@@ -32,7 +31,7 @@ function MemberCard({ member, delay = 0 }) {
   const { name, role, image, email, linkedin, github } = member;
   return (
     <div
-      className="group bg-white/80 backdrop-blur-sm rounded-2xl border border-gray-100 shadow-md hover:shadow-xl transition-all duration-300 hover:-translate-y-1 p-5 flex flex-col items-center text-center"
+      className="group bg-white/80 backdrop-blur-sm rounded-2xl border border-gray-100 shadow-md hover:shadow-xl transition-all duration-300 hover:-translate-y-1 p-5 flex flex-col items-center text-center w-64"
       data-aos="fade-up"
       data-aos-delay={delay}
     >
@@ -109,7 +108,8 @@ function Section({ title, Icon, members }) {
         <h2 className="text-xl sm:text-2xl font-bold text-gray-900">{title}</h2>
       </div>
 
-      <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
+      {/* Center cards */}
+      <div className="flex flex-wrap items-center justify-center gap-6">
         {members.map((m, idx) => (
           <MemberCard key={m.name} member={m} delay={150 + idx * 100} />
         ))}
@@ -118,11 +118,10 @@ function Section({ title, Icon, members }) {
   );
 }
 
-// Small card for each join step
 function StepCard({ Icon, title, text, delay = 0 }) {
   return (
     <div
-      className="group bg-white/80 backdrop-blur-sm rounded-2xl border border-gray-100 shadow-md hover:shadow-xl transition-all duration-300 hover:-translate-y-1 p-5"
+      className="group bg-white/80 backdrop-blur-sm rounded-2xl border border-gray-100 shadow-md hover:shadow-xl transition-all duration-300 hover:-translate-y-1 p-5 w-64"
       data-aos="fade-up"
       data-aos-delay={delay}
     >
@@ -142,23 +141,27 @@ function JoinSection() {
   const steps = [
     {
       Icon: FiClipboard,
-      title: 'Fill the form',
-      text: 'Share your details and interests (film, photo, editing, design) so we can place you right.',
+      title: "Fill the form",
+      text:
+        "Tell us your interests: photography, videography, editing, social media—plus any portfolio links.",
     },
     {
       Icon: FiCalendar,
-      title: 'Orientation & studio tour',
-      text: 'Join the next intro session to learn tools, projects, and expectations.',
+      title: "Welcome meetup + gear briefing",
+      text:
+        "Join the intro session to meet the team, cover best practices, and gear basics.",
     },
     {
       Icon: FiMessageSquare,
-      title: 'Portfolio/skill check (optional)',
-      text: 'Show a sample or do a short task—totally beginner-friendly!',
+      title: "Skill check or portfolio chat",
+      text:
+        "A quick chat or sample task to help us place you in the right sub‑team.",
     },
     {
       Icon: FiCheckCircle,
-      title: 'Onboarding',
-      text: 'We’ll add you to channels, share the gear calendar, and first project brief.',
+      title: "Get onboarded",
+      text:
+        "We’ll add you to channels, share the shoots calendar, and your first assignment.",
     },
   ];
 
@@ -175,12 +178,15 @@ function JoinSection() {
         <span className="inline-flex items-center justify-center h-9 w-9 rounded-lg bg-blue-50 text-blue-700">
           <FiUserPlus className="h-5 w-5" />
         </span>
-        <h2 className="text-xl sm:text-2xl font-bold text-gray-900">Join Media Club — Procedure</h2>
+        <h2 className="text-xl sm:text-2xl font-bold text-gray-900">
+          Join the Media Club — Procedure
+        </h2>
       </div>
 
-      <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-4">
+      {/* Center step cards */}
+      <div className="flex flex-wrap items-center justify-center gap-6">
         {steps.map((s, idx) =>
-          s.title === 'Fill the form' ? (
+          s.title === "Fill the form" ? (
             <a
               key={s.title}
               href={GOOGLE_FORM_URL}
@@ -190,10 +196,21 @@ function JoinSection() {
               aria-label="Open Google Form to join the Media Club"
               title="Open Google Form"
             >
-              <StepCard Icon={s.Icon} title={s.title} text={s.text} delay={baseDelay + idx * step} />
+              <StepCard
+                Icon={s.Icon}
+                title={s.title}
+                text={s.text}
+                delay={baseDelay + idx * step}
+              />
             </a>
           ) : (
-            <StepCard key={s.title} Icon={s.Icon} title={s.title} text={s.text} delay={baseDelay + idx * step} />
+            <StepCard
+              key={s.title}
+              Icon={s.Icon}
+              title={s.title}
+              text={s.text}
+              delay={baseDelay + idx * step}
+            />
           )
         )}
       </div>
@@ -228,17 +245,18 @@ export default function MediaClubPage() {
     });
   }, []);
 
-  const headerBgUrl = '/clubs/hero/media.jpg';
+  const headerBgUrl = "/clubs/hero/media.jpg";
 
   const mediaClubTeam = [
-    { name: 'Ayesha Ranasinghe', role: 'Club Lead', image: '/dummy.webp' },
-    { name: 'Dilshan Perera', role: 'Content Lead', image: '/dummy.webp' },
-    { name: 'Tharushi Jayasekara', role: 'Production Coordinator', image: '/dummy.webp' },
-    { name: 'Ishara De Silva', role: 'Post‑Production Mentor', image: '/dummy.webp' },
+    { name: 'Shenal Veluathan', role: 'President', image: '/unipics/media/IMG-20251024-WA0012.jpg' },
+    { name: 'Gihan Harsha', role: 'Secretary', image: '/unipics/media/WhatsApp Image 2025-10-24 at 10.47.07_2aea6add.jpg' },
+    { name: 'Dasuni Dilanka', role: 'PR & Marketing', image: '/unipics/media/IMG-20251024-WA0014.jpg' },
+    { name: 'Uvindu Eshan', role: 'Executive Committee', image: '/unipics/comm/IMG-20251024-WA0009.jpg' },
+    { name: 'Ganindu Hansaja', role: 'Executive Committee', image: '/unipics/comm/WhatsApp Image 2025-10-24 at 10.47.08_c09161ad.jpg' },
   ];
 
   return (
-    <main className="relative bg-gradient-to-b from-white via-gray-50 to-gray-100 ">
+    <main className="relative bg-gradient-to-b from-white via-gray-50 to-gray-100">
       <section
         className="relative py-14 sm:py-18 md:py-28 text-center bg-cover bg-center bg-scroll md:bg-fixed overflow-hidden"
         style={{ backgroundImage: `url('${headerBgUrl}')` }}
@@ -258,7 +276,7 @@ export default function MediaClubPage() {
             data-aos="fade-up"
             data-aos-delay="100"
           >
-            Create, shoot, edit, and tell stories through film, photography, and design.
+            Capture stories, craft visuals, and create impact through photography, video, and design.
           </p>
           <div
             className="mt-6 flex justify-center"

@@ -1,29 +1,28 @@
 "use client";
 
 import { useEffect } from "react";
-import AOS from "aos";
-import "aos/dist/aos.css";
-
 import {
   FiLinkedin,
   FiGithub,
   FiMail,
+  FiCompass,
   FiUserPlus,
   FiClipboard,
   FiCalendar,
   FiUsers,
   FiCheckCircle,
-  FiCompass,
-} from 'react-icons/fi';
+} from "react-icons/fi";
+import AOS from "aos";
+import "aos/dist/aos.css";
 
 // Replace with your actual Google Form URL
-const GOOGLE_FORM_URL = 'https://forms.gle/YOUR_FORM_ID';
+const GOOGLE_FORM_URL = "https://forms.gle/YOUR_FORM_ID";
 
-function initialsFromName(name = '') {
+function initialsFromName(name = "") {
   return name
-    .split(' ')
+    .split(" ")
     .map((n) => n[0])
-    .join('')
+    .join("")
     .slice(0, 2)
     .toUpperCase();
 }
@@ -32,7 +31,7 @@ function MemberCard({ member, delay = 0 }) {
   const { name, role, image, email, linkedin, github } = member;
   return (
     <div
-      className="group bg-white/80 backdrop-blur-sm rounded-2xl border border-gray-100 shadow-md hover:shadow-xl transition-all duration-300 hover:-translate-y-1 p-5 flex flex-col items-center text-center"
+      className="group bg-white/80 backdrop-blur-sm rounded-2xl border border-gray-100 shadow-md hover:shadow-xl transition-all duration-300 hover:-translate-y-1 p-5 flex flex-col items-center text-center w-64"
       data-aos="fade-up"
       data-aos-delay={delay}
     >
@@ -98,18 +97,15 @@ function MemberCard({ member, delay = 0 }) {
 function Section({ title, Icon, members }) {
   return (
     <section className="mt-10">
-      <div
-        className="flex items-center justify-center gap-3 mb-6"
-        data-aos="fade-up"
-        data-aos-delay="0"
-      >
+      <div className="flex items-center justify-center gap-3 mb-6" data-aos="fade-up" data-aos-delay="0">
         <span className="inline-flex items-center justify-center h-9 w-9 rounded-lg bg-blue-50 text-blue-700">
           <Icon className="h-5 w-5" />
         </span>
         <h2 className="text-xl sm:text-2xl font-bold text-gray-900">{title}</h2>
       </div>
 
-      <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
+      {/* Center cards */}
+      <div className="flex flex-wrap items-center justify-center gap-6">
         {members.map((m, idx) => (
           <MemberCard key={m.name} member={m} delay={150 + idx * 100} />
         ))}
@@ -122,7 +118,7 @@ function Section({ title, Icon, members }) {
 function StepCard({ Icon, title, text, delay = 0 }) {
   return (
     <div
-      className="group bg-white/80 backdrop-blur-sm rounded-2xl border border-gray-100 shadow-md hover:shadow-xl transition-all duration-300 hover:-translate-y-1 p-5"
+      className="group bg-white/80 backdrop-blur-sm rounded-2xl border border-gray-100 shadow-md hover:shadow-xl transition-all duration-300 hover:-translate-y-1 p-5 w-64"
       data-aos="fade-up"
       data-aos-delay={delay}
     >
@@ -142,45 +138,42 @@ function JoinSection() {
   const steps = [
     {
       Icon: FiClipboard,
-      title: 'Fill the form',
-      text: 'Share your details and interests (hiking, socials, volunteering) so we can place you right.',
+      title: "Fill the form",
+      text: "Share your details and interests (hiking, socials, volunteering) so we can place you right.",
     },
     {
       Icon: FiCalendar,
-      title: 'Welcome meetup & safety briefing',
-      text: 'Join the next intro session to meet the crew and cover the basics.',
+      title: "Welcome meetup & safety briefing",
+      text: "Join the next intro session to meet the crew and cover the basics.",
     },
     {
       Icon: FiUsers,
-      title: 'Choose your activity group',
-      text: 'Pick hiking, social events, volunteering—or mix and match.',
+      title: "Choose your activity group",
+      text: "Pick hiking, social events, volunteering—or mix and match.",
     },
     {
       Icon: FiCheckCircle,
-      title: 'First event sign‑up',
-      text: 'Grab a slot for an upcoming outing and get onboarded.',
+      title: "First event sign‑up",
+      text: "Grab a slot for an upcoming outing and get onboarded.",
     },
   ];
 
   const baseDelay = 150;
-  const stepDelay = 120;
+  const step = 120;
 
   return (
     <section id="join" className="mt-14">
-      <div
-        className="flex items-center justify-center gap-3 mb-6"
-        data-aos="fade-up"
-        data-aos-delay="0"
-      >
+      <div className="flex items-center justify-center gap-3 mb-6" data-aos="fade-up" data-aos-delay="0">
         <span className="inline-flex items-center justify-center h-9 w-9 rounded-lg bg-blue-50 text-blue-700">
           <FiUserPlus className="h-5 w-5" />
         </span>
         <h2 className="text-xl sm:text-2xl font-bold text-gray-900">Join Social & Adventure Club — Procedure</h2>
       </div>
 
-      <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-4">
+      {/* Center step cards */}
+      <div className="flex flex-wrap items-center justify-center gap-6">
         {steps.map((s, idx) =>
-          s.title === 'Fill the form' ? (
+          s.title === "Fill the form" ? (
             <a
               key={s.title}
               href={GOOGLE_FORM_URL}
@@ -190,19 +183,15 @@ function JoinSection() {
               aria-label="Open Google Form to join the Social & Adventure Club"
               title="Open Google Form"
             >
-              <StepCard Icon={s.Icon} title={s.title} text={s.text} delay={baseDelay + idx * stepDelay} />
+              <StepCard Icon={s.Icon} title={s.title} text={s.text} delay={baseDelay + idx * step} />
             </a>
           ) : (
-            <StepCard key={s.title} Icon={s.Icon} title={s.title} text={s.text} delay={baseDelay + idx * stepDelay} />
+            <StepCard key={s.title} Icon={s.Icon} title={s.title} text={s.text} delay={baseDelay + idx * step} />
           )
         )}
       </div>
 
-      <div
-        className="mt-8 text-center"
-        data-aos="zoom-in"
-        data-aos-delay={baseDelay + steps.length * stepDelay}
-      >
+      <div className="mt-8 text-center" data-aos="zoom-in" data-aos-delay={baseDelay + steps.length * step}>
         <a
           href={GOOGLE_FORM_URL}
           target="_blank"
@@ -228,17 +217,18 @@ export default function SocialAdventureClubPage() {
     });
   }, []);
 
-  const headerBgUrl = '/clubs/hero/adve.jpg';
+  const headerBgUrl = "/clubs/hero/adve.jpg";
 
   const socialAdventureTeam = [
-    { name: 'Ayesha Ranasinghe', role: 'Club Lead', image: '/dummy.webp' },
-    { name: 'Dilshan Perera', role: 'Events Lead', image: '/dummy.webp' },
-    { name: 'Tharushi Jayasekara', role: 'Community Coordinator', image: '/dummy.webp' },
-    { name: 'Ishara De Silva', role: 'Safety & Logistics', image: '/dummy.webp' },
+    { name: 'Sadeepa Lakshan', role: 'President', image: '/unipics/adven/IMG-20251024-WA0016.jpg' },
+    { name: 'Fathima Sheika', role: 'Secretary', image: '/dummy.webp' },
+    { name: 'Binara Bimsara', role: 'PR & Marketing', image: '/dummy.webp' },
+    { name: 'Rashan Shimalka', role: 'Executive Committee', image: '/unipics/comm/IMG-20251024-WA0015.jpg' },
+    { name: 'Hansaka Wijesinghe', role: 'Executive Committee', image: '/unipics/comm/IMG_6646.jpg' },
   ];
 
   return (
-    <main className="relative bg-gradient-to-b from-white via-gray-50 to-gray-100 ">
+    <main className="relative bg-gradient-to-b from-white via-gray-50 to-gray-100">
       <section
         className="relative py-14 sm:py-18 md:py-28 text-center bg-cover bg-center bg-scroll md:bg-fixed overflow-hidden"
         style={{ backgroundImage: `url('${headerBgUrl}')` }}
@@ -246,25 +236,13 @@ export default function SocialAdventureClubPage() {
         <div className="absolute inset-0 bg-gradient-to-b from-white/70 via-blue-50/70 to-white/70 backdrop-blur-[2px]" />
 
         <div className="relative z-10 max-w-6xl mx-auto px-4 sm:px-6 mt-18">
-          <h1
-            className="text-3xl sm:text-4xl md:text-5xl font-extrabold text-gray-900"
-            data-aos="fade-up"
-            data-aos-delay="0"
-          >
+          <h1 className="text-3xl sm:text-4xl md:text-5xl font-extrabold text-gray-900" data-aos="fade-up" data-aos-delay="0">
             Social & Adventure Club
           </h1>
-          <p
-            className="max-w-2xl mx-auto mt-4 text-gray-600 text-base sm:text-lg"
-            data-aos="fade-up"
-            data-aos-delay="100"
-          >
+          <p className="max-w-2xl mx-auto mt-4 text-gray-600 text-base sm:text-lg" data-aos="fade-up" data-aos-delay="100">
             Make friends, explore new places, and give back—through hikes, socials, and service events.
           </p>
-          <div
-            className="mt-6 flex justify-center"
-            data-aos="fade-up"
-            data-aos-delay="200"
-          >
+          <div className="mt-6 flex justify-center" data-aos="fade-up" data-aos-delay="200">
             <span className="inline-block w-24 h-1 rounded-full bg-blue-700" />
           </div>
         </div>

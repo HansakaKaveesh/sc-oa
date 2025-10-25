@@ -14,14 +14,15 @@ import {
   FiGithub,
   FiCheckCircle,
   FiAlertCircle,
+  FiUsers, // added
 } from "react-icons/fi";
 
 // Replace these with your real details
 const CONTACT_EMAIL = "club@example.com";
 const CONTACT_PHONE = "+94 71 234 5678";
-const ADDRESS = "Innovation Hub, Colombo, Sri Lanka";
+const ADDRESS = "No 126 High Level Rd, Colombo 11222";
 const MAP_EMBED_URL =
-  "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!..."; // optional: your Google Maps embed
+  "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3961.1064374634334!2d79.8771446!3d6.877849899999999!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3ae25b0e8f383d73%3A0xd5ef7c7769be381!2sOpenArc%20Campus!5e0!3m2!1sen!2slk!4v1761401809401!5m2!1sen!2slk"; // optional: your Google Maps embed
 const LINKEDIN_URL = "https://www.linkedin.com/company/YOUR_PAGE";
 const GITHUB_URL = "https://github.com/YOUR_ORG";
 
@@ -120,6 +121,88 @@ function SocialLinks({ delay = 0 }) {
   );
 }
 
+// Helpers
+function initialsFromName(name = "") {
+  return name
+    .split(" ")
+    .map((n) => n[0])
+    .join("")
+    .slice(0, 2)
+    .toUpperCase();
+}
+
+// Member contact card (new)
+function MemberContactCard({ person, delay = 0 }) {
+  const { name, role, image, email, phone, linkedin } = person;
+  const telHref = phone ? `tel:${phone.replace(/\s+/g, "")}` : undefined;
+  return (
+    <div
+      className="bg-white/80 backdrop-blur-sm rounded-2xl border border-gray-100 shadow-md p-5 hover:shadow-xl transition-all duration-300 hover:-translate-y-1"
+      data-aos="fade-up"
+      data-aos-delay={delay}
+    >
+      <div className="flex items-center gap-4">
+        <div className="h-14 w-14 rounded-full overflow-hidden ring-4 ring-blue-50 bg-gradient-to-br from-blue-100 to-blue-50 grid place-items-center text-blue-700 font-bold">
+          {image ? (
+            // eslint-disable-next-line @next/next/no-img-element
+            <img
+              src={image}
+              alt={`${name} portrait`}
+              className="h-full w-full object-cover"
+              loading="lazy"
+              onLoad={() => AOS.refresh()}
+            />
+          ) : (
+            <span>{initialsFromName(name)}</span>
+          )}
+        </div>
+        <div className="min-w-0">
+          <h3 className="text-sm sm:text-base font-semibold text-gray-900 truncate">{name}</h3>
+          <p className="text-xs text-gray-600">{role}</p>
+        </div>
+      </div>
+
+      <div className="mt-4 flex flex-wrap items-center gap-3">
+        {email && (
+          <a
+            href={`mailto:${email}`}
+            className="inline-flex items-center gap-2 text-sm text-gray-700 hover:text-blue-700"
+            aria-label={`Email ${name}`}
+            title="Email"
+          >
+            <FiMail className="h-4 w-4" />
+            <span className="truncate">{email}</span>
+          </a>
+        )}
+        {phone && (
+          <a
+            href={telHref}
+            className="inline-flex items-center gap-2 text-sm text-gray-700 hover:text-blue-700"
+            aria-label={`Call ${name}`}
+            title="Phone"
+          >
+            <FiPhone className="h-4 w-4" />
+            <span className="truncate">{phone}</span>
+          </a>
+        )}
+        {linkedin && (
+          <a
+            href={linkedin}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center gap-2 text-sm text-gray-700 hover:text-blue-700"
+            aria-label={`${name} on LinkedIn`}
+            title="LinkedIn"
+          >
+            <FiLinkedin className="h-4 w-4" />
+            <span className="truncate">LinkedIn</span>
+          </a>
+        )}
+      </div>
+    </div>
+  );
+}
+
 function ContactForm() {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
@@ -154,11 +237,9 @@ function ContactForm() {
     try {
       setStatus("loading");
       if (hasRealForm) {
-        // Open your Google Form for completion
         window.open(GOOGLE_FORM_URL, "_blank", "noopener,noreferrer");
         setStatus("success");
       } else if (CONTACT_EMAIL) {
-        // Fallback: open email client
         window.location.href = buildMailto();
         setStatus("success");
       } else {
@@ -313,6 +394,34 @@ export default function ContactPage() {
 
   const headerBgUrl = "https://images.pexels.com/photos/5745183/pexels-photo-5745183.jpeg";
 
+  // New: key contacts data (replace with real info)
+  const keyContacts = [
+    {
+      name: "Jerushan Jacob",
+      role: "President",
+      image: "/unipics/comm/WhatsApp Image 2025-10-24 at 20.27.00_e8d7931c.jpg",
+      email: "jerushan@example.com",
+      phone: "+94 71 111 1111",
+      linkedin: "https://www.linkedin.com/in/jerushan",
+    },
+    {
+      name: "Chrishelle Natara",
+      role: "secretary",
+      image: "/unipics/comm/IMG-20251024-WA0011.jpg",
+      email: "chrishelle@example.com",
+      phone: "+94 77 222 2222",
+      linkedin: "https://www.linkedin.com/in/chrishelle",
+    },
+    {
+      name: "Roshan Farook",
+      role: "Community Coordinator",
+      image: "/dummy.webp",
+      email: "roshan@example.com",
+      phone: "+94 76 333 3333",
+      linkedin: "https://www.linkedin.com/in/roshan",
+    },
+  ];
+
   return (
     <main className="relative bg-gradient-to-b from-white via-gray-50 to-gray-100">
       {/* Hero */}
@@ -383,6 +492,16 @@ export default function ContactPage() {
         {/* Socials */}
         <div className="mt-6">
           <SocialLinks delay={120} />
+        </div>
+
+        {/* New: Key contacts (3 members) */}
+        <div className="mt-12">
+          <SectionHeader title="Key contacts" Icon={FiUsers} />
+          <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+            {keyContacts.map((p, idx) => (
+              <MemberContactCard key={p.email || p.name} person={p} delay={120 + idx * 60} />
+            ))}
+          </div>
         </div>
 
         {/* Form + Hours/Map */}

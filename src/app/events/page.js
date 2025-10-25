@@ -218,64 +218,18 @@ export default function EventsPage() {
   // Sample data — replace with your events
   const events = [
     {
-      id: "ella-rock-2025-11-12",
-      title: "Sunrise Hike to Ella Rock",
-      start: "2025-11-12T05:30:00+05:30",
-      end: "2025-11-12T11:00:00+05:30",
-      location: "Ella, Sri Lanka",
-      category: "Hiking",
-      image: "/events/ella.jpg",
-      description:
-        "Chase the sunrise with a moderate hike, scenic viewpoints, and a picnic at the top.",
-      rsvpLink: GOOGLE_FORM_URL,
-    },
-    {
-      id: "beach-cleanup-2025-11-23",
-      title: "Beach Clean‑up at Mount Lavinia",
-      start: "2025-11-23T07:30:00+05:30",
-      end: "2025-11-23T10:30:00+05:30",
-      location: "Mount Lavinia Beach",
-      category: "Volunteering",
-      image: "/events/beach.jpg",
-      description:
-        "Join the crew to clean the shoreline and log waste with the Ocean Conservancy app.",
-      rsvpLink: GOOGLE_FORM_URL,
-    },
-    {
-      id: "game-night-2025-10-25",
-      title: "Game Night Social",
-      start: "2025-10-25T18:00:00+05:30",
-      end: "2025-10-25T21:00:00+05:30",
-      location: "Innovation Hub, Colombo",
+      id: "SOLUNA’25-2025-12-10",
+      title: "SOLUNA’25 – The Cultural Night!",
+      start: "2025-12-10T05:30:00+05:30",
+      end: "2025-12-10T11:00:00+05:30",
+      location: "OpenArc Campus, Colombo, Sri Lanka",
       category: "Social",
-      image: "/events/gamenight.jpg",
+      image: "/events/WhatsApp Image 2025-10-17 at 11.25.25_7c0acc6f.jpg",
       description:
-        "Board games, snacks, and good vibes. New members welcome—bring a friend!",
+        "Experience the vibrant cultures of Sri Lanka through dance, music, and cuisine at SOLUNA’25. A night to remember!",
       rsvpLink: GOOGLE_FORM_URL,
     },
-    {
-      id: "first-aid-2025-11-05",
-      title: "First Aid Basics Workshop",
-      start: "2025-11-05T17:30:00+05:30",
-      end: "2025-11-05T19:30:00+05:30",
-      location: "Community Center, Dehiwala",
-      category: "Workshop",
-      image: "/events/firstaid.jpg",
-      description:
-        "Hands-on essentials for outdoor activities—CPR, bandaging, and incident response.",
-      rsvpLink: GOOGLE_FORM_URL,
-    },
-    {
-      id: "city-walk-2025-09-15",
-      title: "Old Colombo Heritage Walk",
-      start: "2025-09-15T16:00:00+05:30",
-      end: "2025-09-15T18:30:00+05:30",
-      location: "Pettah to Fort, Colombo",
-      category: "Social",
-      image: "/events/colombo.jpg",
-      description:
-        "A guided stroll through history—architecture, stories, and street bites.",
-    },
+
   ];
 
   const now = new Date();

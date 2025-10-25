@@ -16,6 +16,13 @@ export default function CatchUps() {
 
   const updates = [
     {
+      title: "SOLUNA’25 – The Cultural Night!",
+      text: "Experience the vibrant cultures of Sri Lanka through dance, music, and cuisine at SOLUNA’25. A night to remember!",
+      img: "/events/WhatsApp Image 2025-10-17 at 11.25.25_7c0acc6f.jpg",
+      link: "#",
+      tag: "Social Event",
+    },
+    {
       title: "Official Merchandise Pack 2025/26",
       text: "Your exclusive hoodie, t‑shirt, and accessories are now available at all centers. Grab your limited edition pack today!",
       img: "/Post.png",
@@ -28,13 +35,6 @@ export default function CatchUps() {
       img: "/Trip.png",
       link: "#",
       tag: "Event Highlights",
-    },
-    {
-      title: "Study Support — Build your Confidence",
-      text: "Join our upcoming peer‑learning sessions organized by OCSC tutors. Learn collaboratively and strengthen your fundamentals.",
-      img: "https://www.udgamschool.com/wp-content/uploads/2023/05/dummy-image-grey-e1398449111870.jpg",
-      link: "#",
-      tag: "Academics",
     },
   ];
 

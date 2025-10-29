@@ -19,7 +19,7 @@ export default function CatchUps() {
       title: "SOLUNA’25 – The Cultural Night!",
       text: "Experience the vibrant cultures of Sri Lanka through dance, music, and cuisine at SOLUNA’25. A night to remember!",
       img: "/events/WhatsApp Image 2025-10-17 at 11.25.25_7c0acc6f.jpg",
-      link: "#",
+      link: "/events",
       tag: "Social Event",
     },
     {
@@ -33,7 +33,7 @@ export default function CatchUps() {
       title: "Malaysia Study Tour 2026",
       text: "Join us for an unforgettable study tour to Malaysia in 2026! Explore top universities, experience the culture, and broaden your horizons.",
       img: "/malashiya.jpg",
-      link: "#",
+      link: "/events",
       tag: "Event Highlights",
     },
   ];

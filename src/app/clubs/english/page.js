@@ -19,7 +19,7 @@ import "aos/dist/aos.css";
 const GOOGLE_FORM_URL = "https://forms.gle/YOUR_FORM_ID";
 
 // Add your club logo path here
-const CLUB_LOGO = "/clubs/logo/english.png"; // e.g., "/unipics/englishclub/logo.png"
+const CLUB_LOGO = "/clubs/logo/English.png"; // e.g., "/unipics/englishclub/logo.png"
 
 function initialsFromName(name = "") {
   return name

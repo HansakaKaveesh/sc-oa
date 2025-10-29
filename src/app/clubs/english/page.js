@@ -260,7 +260,7 @@ export default function EnglishClubPage() {
             data-aos="fade-up"
             data-aos-delay="0"
           >
-            English Club
+            English & Cultural Club 
           </h1>
           <p
             className="max-w-2xl mx-auto mt-4 text-gray-600 text-base sm:text-lg"

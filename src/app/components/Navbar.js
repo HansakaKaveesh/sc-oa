@@ -28,10 +28,11 @@ export default function Navbar() {
     { name: "Contact", href: "/contact" },
   ];
 
+  // Add club logos here
   const clubs = [
-    { name: "English Club", href: "/clubs/english" },
-    { name: "Media Club", href: "/clubs/media" },
-    { name: "Social & Adventure Club", href: "/clubs/social" },
+    { name: "English & Cultural Club", href: "/clubs/english", logo: "/clubs/logo/English.png" },
+    { name: "Media Club", href: "/clubs/media", logo: "/clubs/logo/Media.png" },
+    { name: "Social & Adventure Club", href: "/clubs/social", logo: "/clubs/logo/Adv.png" },
   ];
 
   // Scroll background effect
@@ -149,17 +150,27 @@ export default function Navbar() {
                   <div
                     id="clubs-dropdown"
                     role="menu"
-                    className="absolute left-0 top-5 bg-white border border-gray-200 shadow-lg rounded-md py-2 w-56 animate-fadeDown"
+                    className="absolute left-0 top-5 bg-white border border-gray-200 shadow-lg rounded-md py-2 w-64 animate-fadeDown"
                   >
                     {clubs.map((club) => (
                       <Link
                         key={club.name}
                         href={club.href}
                         role="menuitem"
-                        className="block px-4 py-2 text-gray-700 hover:bg-blue-100 hover:text-blue-600 transition rounded focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-500"
+                        className="flex items-center gap-3 px-4 py-2 text-gray-700 hover:bg-blue-100 hover:text-blue-600 transition rounded focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-500"
                         onClick={() => setClubsOpen(false)}
+                        aria-label={club.name}
                       >
-                        {club.name}
+                        {/* club logo */}
+                        <span className="inline-flex h-6 w-6 items-center justify-center rounded-full bg-white ring-1 ring-gray-200 overflow-hidden">
+                          <img
+                            src={club.logo}
+                            alt={`${club.name} logo`}
+                            className="h-full w-full object-contain"
+                            loading="lazy"
+                          />
+                        </span>
+                        <span className="truncate">{club.name}</span>
                       </Link>
                     ))}
                   </div>
@@ -238,7 +249,7 @@ export default function Navbar() {
                 <div
                   id="mobile-clubs"
                   className={`overflow-hidden transition-all duration-300 ease-in-out ${
-                    clubsOpen ? "max-h-40 opacity-100" : "max-h-0 opacity-0"
+                    clubsOpen ? "max-h-48 opacity-100" : "max-h-0 opacity-0"
                   }`}
                   onClick={(e) => e.stopPropagation()}
                 >
@@ -247,9 +258,18 @@ export default function Navbar() {
                       key={club.name}
                       href={club.href}
                       onClick={() => setOpen(false)}
-                      className="block pl-4 py-1 text-gray-600 hover:text-orange-500 transition rounded focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-orange-500"
+                      className="flex items-center gap-3 pl-4 py-2 text-gray-600 hover:text-orange-500 transition rounded focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-orange-500"
+                      aria-label={club.name}
                     >
-                      {club.name}
+                      <span className="inline-flex h-6 w-6 items-center justify-center rounded-full bg-white ring-1 ring-gray-200 overflow-hidden">
+                        <img
+                          src={club.logo}
+                          alt={`${club.name} logo`}
+                          className="h-full w-full object-contain"
+                          loading="lazy"
+                        />
+                      </span>
+                      <span className="truncate">{club.name}</span>
                     </Link>
                   ))}
                 </div>

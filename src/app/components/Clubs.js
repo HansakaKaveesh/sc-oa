@@ -24,7 +24,7 @@ export default function Clubs() {
     },
     {
       name: "English Club",
-      image: "/clubs/logo/english.png",
+      image: "/clubs/logo/English.png",
       link: "/clubs/english",
     },
     {

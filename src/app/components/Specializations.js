@@ -11,7 +11,7 @@ const CAMPUS_LOGO = { src: "/Logo%20SCOC.png", alt: "OpenArc Campus Committee" }
 const CLUB_LOGOS = [
   { image: "/clubs/logo/media.png", alt: "Media Club" },
   { image: "/clubs/logo/Adv.png", alt: "Social & Adventure Club" },
-  { image: "/clubs/logo/english.png", alt: "English Club" },
+  { image: "/clubs/logo/English.png", alt: "English Club" },
 ];
 
 function HierarchyFlow({ campus, clubs }) {

@@ -75,7 +75,7 @@ export default function Hero() {
       </div>
 
       {/* Overlays: gradient + aurora + noise */}
-      <div className="absolute inset-0 bg-gradient-to-b from-white/80 via-blue-60/40 to-white/60 backdrop-blur-[1.5px]" />
+      <div className="absolute inset-0 bg-gradient-to-b from-white/80 via-blue-60/40 to-white/80 backdrop-blur-[2px]" />
       
       <div
         className="absolute inset-0 opacity-[.18] pointer-events-none mix-blend-multiply"
@@ -117,7 +117,7 @@ export default function Hero() {
           data-aos="fade-up"
           data-aos-delay="200"
         >
-          The heart of student leadership at OpenArc — uniting passionate
+          The heart of student leadership at OpenArc - uniting passionate
           innovators, collaborators, and creators to grow together through
           learning and shared vision.
         </p>
@@ -137,7 +137,7 @@ export default function Hero() {
             Learn More
           </a>
           <a
-            href="#contact"
+            href="/contact"
             className="relative inline-flex items-center justify-center px-7 py-3 sm:px-8 sm:py-2 font-semibold rounded-lg 
                        border-2 border-blue-700 text-blue-700 hover:bg-blue-50 hover:text-blue-800 transform hover:-translate-y-0.5 transition-all duration-300 w-full sm:w-auto"
           >

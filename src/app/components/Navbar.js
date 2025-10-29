@@ -31,7 +31,7 @@ export default function Navbar() {
   // Add club logos here
   const clubs = [
     { name: "English & Cultural Club", href: "/clubs/english", logo: "/clubs/logo/English.png" },
-    { name: "Media Club", href: "/clubs/media", logo: "/clubs/logo/Media.png" },
+    { name: "Media Club", href: "/clubs/media", logo: "/clubs/logo/media.png" },
     { name: "Social & Adventure Club", href: "/clubs/social", logo: "/clubs/logo/Adv.png" },
   ];
 

@@ -24,7 +24,7 @@ export default function Home() {
         oncePerSession={false}
         title="OFFICIAL WRISTBAND!"
         text="EXCLUSIVE OPENARC CAMPUS WRISTBANDS."
-        imageSrc="/WB post.png"
+        imageSrc="/18899268.png"
         ctaText="Buy Now"
         ctaHref="https://forms.gle/FAmUD1HEe5byGS1m7"
       />

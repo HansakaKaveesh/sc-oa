@@ -18,6 +18,9 @@ import "aos/dist/aos.css";
 // Replace with your actual Google Form URL
 const GOOGLE_FORM_URL = "https://forms.gle/YOUR_FORM_ID";
 
+// Add your club logo path here
+const CLUB_LOGO = "/clubs/logo/Adv.png"; // e.g., "/unipics/adven/logo.png"
+
 function initialsFromName(name = "") {
   return name
     .split(" ")
@@ -220,11 +223,11 @@ export default function SocialAdventureClubPage() {
   const headerBgUrl = "/clubs/hero/adve.jpg";
 
   const socialAdventureTeam = [
-    { name: 'Sadeepa Lakshan', role: 'President', image: '/unipics/adven/IMG-20251024-WA0016.jpg' },
-    { name: 'Fathima Sheika', role: 'Secretary', image: '/dummy.webp' },
-    { name: 'Binara Bimsara', role: 'PR & Marketing', image: '/dummy.webp' },
-    { name: 'Rashan Shimalka', role: 'Executive Committee', image: '/unipics/comm/IMG-20251024-WA0015.jpg' },
-    { name: 'Hansaka Wijesinghe', role: 'Executive Committee', image: '/unipics/comm/IMG_6646.jpg' },
+    { name: "Sadeepa Lakshan", role: "President", image: "/unipics/adven/IMG-20251024-WA0016.jpg" },
+    { name: "Fathima Sheika", role: "Secretary", image: "/dummy.webp" },
+    { name: "Binara Bimsara", role: "PR & Marketing", image: "/dummy.webp" },
+    { name: "Rashan Shimalka", role: "Executive Committee", image: "/unipics/comm/IMG-20251024-WA0015.jpg" },
+    { name: "Hansaka Wijesinghe", role: "Executive Committee", image: "/unipics/comm/IMG_6646.jpg" },
   ];
 
   return (
@@ -236,6 +239,22 @@ export default function SocialAdventureClubPage() {
         <div className="absolute inset-0 bg-gradient-to-b from-white/70 via-blue-50/70 to-white/70 backdrop-blur-[2px]" />
 
         <div className="relative z-10 max-w-6xl mx-auto px-4 sm:px-6 mt-18">
+          {/* Club logo in hero */}
+          {CLUB_LOGO && (
+            <div className="mb-5 flex justify-center" data-aos="zoom-in" data-aos-delay="50">
+              <div className="relative h-20 w-20 sm:h-24 sm:w-24 rounded-full overflow-hidden ring-4 ring-blue-50 bg-white/90 shadow-md">
+                {/* eslint-disable-next-line @next/next/no-img-element */}
+                <img
+                  src={CLUB_LOGO}
+                  alt="Social & Adventure Club logo"
+                  className="h-full w-full object-contain p-2"
+                  loading="eager"
+                  onLoad={() => AOS.refresh()}
+                />
+              </div>
+            </div>
+          )}
+
           <h1 className="text-3xl sm:text-4xl md:text-5xl font-extrabold text-gray-900" data-aos="fade-up" data-aos-delay="0">
             Social & Adventure Club
           </h1>

@@ -11,18 +11,21 @@ import {
   FiCalendar,
   FiMessageSquare,
   FiCheckCircle,
-} from 'react-icons/fi';
+} from "react-icons/fi";
 import AOS from "aos";
 import "aos/dist/aos.css";
 
 // Replace with your actual Google Form URL
-const GOOGLE_FORM_URL = 'https://forms.gle/YOUR_FORM_ID';
+const GOOGLE_FORM_URL = "https://forms.gle/YOUR_FORM_ID";
 
-function initialsFromName(name = '') {
+// Add your club logo path here
+const CLUB_LOGO = "/clubs/logo/english.png"; // e.g., "/unipics/englishclub/logo.png"
+
+function initialsFromName(name = "") {
   return name
-    .split(' ')
+    .split(" ")
     .map((n) => n[0])
-    .join('')
+    .join("")
     .slice(0, 2)
     .toUpperCase();
 }
@@ -97,11 +100,7 @@ function MemberCard({ member, delay = 0 }) {
 function Section({ title, Icon, members }) {
   return (
     <section className="mt-10">
-      <div
-        className="flex items-center justify-center gap-3 mb-6"
-        data-aos="fade-up"
-        data-aos-delay="0"
-      >
+      <div className="flex items-center justify-center gap-3 mb-6" data-aos="fade-up" data-aos-delay="0">
         <span className="inline-flex items-center justify-center h-9 w-9 rounded-lg bg-blue-50 text-blue-700">
           <Icon className="h-5 w-5" />
         </span>
@@ -142,23 +141,23 @@ function JoinSection() {
   const steps = [
     {
       Icon: FiClipboard,
-      title: 'Fill the form',
-      text: 'Share your name, email, and interests so we can place you in the right activities.',
+      title: "Fill the form",
+      text: "Share your name, email, and interests so we can place you in the right activities.",
     },
     {
       Icon: FiCalendar,
-      title: 'Attend an intro meetup',
-      text: 'Join our next session to learn how the club works and meet the team.',
+      title: "Attend an intro meetup",
+      text: "Join our next session to learn how the club works and meet the team.",
     },
     {
       Icon: FiMessageSquare,
-      title: 'Placement activity',
-      text: 'A quick, friendly chat or short task to gauge your comfort level.',
+      title: "Placement activity",
+      text: "A quick, friendly chat or short task to gauge your comfort level.",
     },
     {
       Icon: FiCheckCircle,
-      title: 'Get onboarded',
-      text: 'We’ll add you to the group, share the schedule, and you’re in!',
+      title: "Get onboarded",
+      text: "We’ll add you to the group, share the schedule, and you’re in!",
     },
   ];
 
@@ -167,11 +166,7 @@ function JoinSection() {
 
   return (
     <section id="join" className="mt-14">
-      <div
-        className="flex items-center justify-center gap-3 mb-6"
-        data-aos="fade-up"
-        data-aos-delay="0"
-      >
+      <div className="flex items-center justify-center gap-3 mb-6" data-aos="fade-up" data-aos-delay="0">
         <span className="inline-flex items-center justify-center h-9 w-9 rounded-lg bg-blue-50 text-blue-700">
           <FiUserPlus className="h-5 w-5" />
         </span>
@@ -181,7 +176,7 @@ function JoinSection() {
       {/* Center step cards */}
       <div className="flex flex-wrap items-center justify-center gap-6">
         {steps.map((s, idx) =>
-          s.title === 'Fill the form' ? (
+          s.title === "Fill the form" ? (
             <a
               key={s.title}
               href={GOOGLE_FORM_URL}
@@ -191,10 +186,10 @@ function JoinSection() {
               aria-label="Open Google Form to join the club"
               title="Open Google Form"
             >
-              <StepCard Icon={s.Icon} title={s.title} text={s.text} delay={baseDelay + idx * step} />
+              <StepCard Icon={s.Icon} title={s.title} text={s.text} delay={150 + idx * step} />
             </a>
           ) : (
-            <StepCard key={s.title} Icon={s.Icon} title={s.title} text={s.text} delay={baseDelay + idx * step} />
+            <StepCard key={s.title} Icon={s.Icon} title={s.title} text={s.text} delay={150 + idx * step} />
           )
         )}
       </div>
@@ -225,14 +220,14 @@ export default function EnglishClubPage() {
     });
   }, []);
 
-  const headerBgUrl = '/clubs/hero/english.jpg';
+  const headerBgUrl = "/clubs/hero/english.jpg";
 
   const englishClubTeam = [
-    { name: 'Hiruni Prabodha', role: 'President', image: '/unipics/englishclub/IMG-20251024-WA0010.jpg' },
-    { name: 'Nethmi Dias', role: 'Secretary', image: '/dummy.webp' },
-    { name: 'Nisuli Jayasooriya', role: 'PR & Marketing', image: '/unipics/englishclub/IMG-20251024-WA0008.jpg' },
-    { name: 'Chrishelle Natara', role: 'Executive Committee', image: '/unipics/comm/IMG-20251024-WA0011.jpg' },
-    { name: 'Jerushan Daniel', role: 'Executive Committee', image: '/unipics/comm/WhatsApp Image 2025-10-24 at 20.27.00_e8d7931c.jpg' },
+    { name: "Hiruni Prabodha", role: "President", image: "/unipics/englishclub/IMG-20251024-WA0010.jpg" },
+    { name: "Nethmi Dias", role: "Secretary", image: "/dummy.webp" },
+    { name: "Nisuli Jayasooriya", role: "PR & Marketing", image: "/unipics/englishclub/IMG-20251024-WA0008.jpg" },
+    { name: "Chrishelle Natara", role: "Executive Committee", image: "/unipics/comm/IMG-20251024-WA0011.jpg" },
+    { name: "Jerushan Daniel", role: "Executive Committee", image: "/unipics/comm/WhatsApp Image 2025-10-24 at 20.27.00_e8d7931c.jpg" },
   ];
 
   return (
@@ -244,6 +239,22 @@ export default function EnglishClubPage() {
         <div className="absolute inset-0 bg-gradient-to-b from-white/70 via-blue-50/70 to-white/70 backdrop-blur-[2px]" />
 
         <div className="relative z-10 max-w-6xl mx-auto px-4 sm:px-6 mt-18">
+          {/* Club logo in hero */}
+          {CLUB_LOGO && (
+            <div className="mb-5 flex justify-center" data-aos="zoom-in" data-aos-delay="50">
+              <div className="relative h-20 w-20 sm:h-24 sm:w-24 rounded-full overflow-hidden ring-4 ring-blue-50 bg-white/90 shadow-md">
+                {/* eslint-disable-next-line @next/next/no-img-element */}
+                <img
+                  src={CLUB_LOGO}
+                  alt="English Club logo"
+                  className="h-full w-full object-contain p-2"
+                  loading="eager"
+                  onLoad={() => AOS.refresh()}
+                />
+              </div>
+            </div>
+          )}
+
           <h1
             className="text-3xl sm:text-4xl md:text-5xl font-extrabold text-gray-900"
             data-aos="fade-up"
@@ -258,11 +269,7 @@ export default function EnglishClubPage() {
           >
             Building confidence in communication through activities, workshops, and collaboration.
           </p>
-          <div
-            className="mt-6 flex justify-center"
-            data-aos="fade-up"
-            data-aos-delay="200"
-          >
+          <div className="mt-6 flex justify-center" data-aos="fade-up" data-aos-delay="200">
             <span className="inline-block w-24 h-1 rounded-full bg-blue-700" />
           </div>
         </div>

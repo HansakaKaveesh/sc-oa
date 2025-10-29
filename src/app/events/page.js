@@ -220,8 +220,8 @@ export default function EventsPage() {
     {
       id: "SOLUNA’25-2025-12-10",
       title: "SOLUNA’25 – The Cultural Night!",
-      start: "2025-12-10T05:30:00+05:30",
-      end: "2025-12-10T11:00:00+05:30",
+      start: "2025-12-05T05:30:00+05:30",
+      end: "2025-12-05T11:00:00+05:30",
       location: "OpenArc Campus, Colombo, Sri Lanka",
       category: "Social",
       image: "/events/WhatsApp Image 2025-10-17 at 11.25.25_7c0acc6f.jpg",
@@ -229,6 +229,20 @@ export default function EventsPage() {
         "Experience the vibrant cultures of Sri Lanka through dance, music, and cuisine at SOLUNA’25. A night to remember!",
       rsvpLink: GOOGLE_FORM_URL,
     },
+
+        {
+      id: "Malaysia Study Tour 2026",
+      title: "Malaysia Study Tour 2026",
+      start: "2026-05-06T05:30:00+05:30",
+      end: "2026-05-11T11:00:00+05:30",
+      location: "Malaysia",
+      category: "Tour",
+      image: "/malashiya.jpg",
+      description:
+        "Join us for an unforgettable study tour to Malaysia in 2026! Explore top universities, experience the culture, and broaden your horizons.",
+      rsvpLink: GOOGLE_FORM_URL,
+    },
+
 
   ];
 

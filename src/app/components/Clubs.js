@@ -19,17 +19,17 @@ export default function Clubs() {
   const clubs = [
     {
       name: "Media Club",
-      image: "https://images.seeklogo.com/logo-png/18/1/logo-com-hr-logo-png_seeklogo-186226.png",
+      image: "/clubs/logo/media.png",
       link: "/clubs/media",
     },
     {
       name: "English Club",
-      image: "https://images.seeklogo.com/logo-png/18/1/logo-com-hr-logo-png_seeklogo-186226.png",
+      image: "/clubs/logo/english.png",
       link: "/clubs/english",
     },
     {
       name: "Social & Adventure Club",
-      image: "https://images.seeklogo.com/logo-png/18/1/logo-com-hr-logo-png_seeklogo-186226.png",
+      image: "/clubs/logo/Adv.png",
       link: "/clubs/social",
     },
   ];

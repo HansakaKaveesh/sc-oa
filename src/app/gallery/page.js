@@ -31,8 +31,35 @@ const photos = [
   {
     id: "Trip to Ambuluwawa",
     src: "/hero2.jpg",
-    alt: "Volunteers collecting plastic on the beach",
-    category: "Volunteering",
+    alt: "Trip to Ambuluwawa tower",
+    category: "Cultural",
+    location: "Mount Lavinia Beach",
+    date: "2025-11-23",
+    albumUrl: "https://photos.app.goo.gl/YOUR_ALBUM",
+  },
+    {
+    id: "Trip to ",
+    src: "/hero2.jpg",
+    alt: "Trip to Ambuluwawa tower",
+    category: "Cultural",
+    location: "Mount Lavinia Beach",
+    date: "2025-11-23",
+    albumUrl: "https://photos.app.goo.gl/YOUR_ALBUM",
+  },
+    {
+    id: " Ambuluwawa",
+    src: "/hero2.jpg",
+    alt: "Trip to Ambuluwawa tower",
+    category: "Cultural",
+    location: "Mount Lavinia Beach",
+    date: "2025-11-23",
+    albumUrl: "https://photos.app.goo.gl/YOUR_ALBUM",
+  },
+    {
+    id: "Trip Ambuluwawa",
+    src: "/hero2.jpg",
+    alt: "Trip to Ambuluwawa tower",
+    category: "Cultural",
     location: "Mount Lavinia Beach",
     date: "2025-11-23",
     albumUrl: "https://photos.app.goo.gl/YOUR_ALBUM",
@@ -93,7 +120,6 @@ function SectionHeader({ title, Icon }) {
     <div
       className="flex items-center justify-center gap-3 mb-6"
       data-aos="fade-up"
-      data-aos-delay="0"
     >
       <span className="inline-flex items-center justify-center h-9 w-9 rounded-lg bg-blue-50 text-blue-700">
         <Icon className="h-5 w-5" />
@@ -103,47 +129,7 @@ function SectionHeader({ title, Icon }) {
   );
 }
 
-function CategoryFilter({ categories, active, counts, onChange }) {
-  return (
-    <div
-      className="flex flex-wrap items-center gap-2 justify-center"
-      data-aos="fade-up"
-      data-aos-delay="100"
-    >
-      <span className="inline-flex items-center gap-2 text-gray-600 text-sm mr-1">
-        <FiFilter className="h-4 w-4" /> Filter
-      </span>
-      {categories.map((cat) => {
-        const isActive = active === cat;
-        return (
-          <button
-            key={cat}
-            onClick={() => onChange(cat)}
-            className={[
-              "inline-flex items-center gap-2 px-3 py-1.5 rounded-full border text-sm transition-colors",
-              isActive
-                ? "bg-blue-700 text-white border-blue-700"
-                : "bg-white text-gray-700 border-gray-200 hover:border-blue-300 hover:text-blue-800",
-            ].join(" ")}
-            aria-pressed={isActive}
-          >
-            <span>{cat}</span>
-            <span
-              className={[
-                "inline-flex items-center justify-center text-xs rounded-full px-1.5 py-0.5",
-                isActive ? "bg-white/20" : "bg-gray-100 text-gray-600",
-              ].join(" ")}
-            >
-              {counts[cat] ?? 0}
-            </span>
-          </button>
-        );
-      })}
-    </div>
-  );
-}
-
-// UPDATED: no fixed aspect ratio — let images define height
+// Gallery card
 function GalleryCard({ photo, delay = 0, onOpen }) {
   const { src, alt, category, location, date } = photo;
   const monthDay = new Intl.DateTimeFormat(undefined, {
@@ -160,7 +146,6 @@ function GalleryCard({ photo, delay = 0, onOpen }) {
       data-aos-delay={delay}
       aria-label={`Open photo: ${alt}`}
     >
-      {/* Natural-height image */}
       <img
         src={src}
         alt={alt}
@@ -201,6 +186,7 @@ function GalleryCard({ photo, delay = 0, onOpen }) {
   );
 }
 
+// Lightbox component
 function Lightbox({ items, index, onClose, onPrev, onNext }) {
   if (index < 0 || index >= items.length) return null;
   const p = items[index];
@@ -231,7 +217,6 @@ function Lightbox({ items, index, onClose, onPrev, onNext }) {
             className="w-full max-h-[75vh] object-contain bg-black/20"
             loading="eager"
           />
-
           {/* Navigation */}
           {items.length > 1 && (
             <>
@@ -305,23 +290,6 @@ export default function GalleryPage() {
     () => Array.from(new Set(photos.map((p) => p.category))).sort(),
     []
   );
-  const categories = ["All", ...baseCategories];
-
-  const [activeCat, setActiveCat] = useState("All");
-
-  const filtered = useMemo(
-    () =>
-      photos.filter((p) => activeCat === "All" || p.category === activeCat),
-    [activeCat]
-  );
-
-  const counts = useMemo(() => {
-    const map = photos.reduce((acc, p) => {
-      acc[p.category] = (acc[p.category] || 0) + 1;
-      return acc;
-    }, {});
-    return { All: photos.length, ...map };
-  }, []);
 
   // Lightbox state
   const [lightboxIndex, setLightboxIndex] = useState(-1);
@@ -329,11 +297,11 @@ export default function GalleryPage() {
   const openAt = (i) => setLightboxIndex(i);
   const close = () => setLightboxIndex(-1);
   const prev = () =>
-    setLightboxIndex((i) => (i <= 0 ? filtered.length - 1 : i - 1));
+    setLightboxIndex((i) => (i <= 0 ? photos.length - 1 : i - 1));
   const next = () =>
-    setLightboxIndex((i) => (i >= filtered.length - 1 ? 0 : i + 1));
+    setLightboxIndex((i) => (i >= photos.length - 1 ? 0 : i + 1));
 
-  // Keyboard controls for lightbox
+  // Keyboard control
   useEffect(() => {
     if (lightboxIndex < 0) return;
     const onKey = (e) => {
@@ -342,18 +310,17 @@ export default function GalleryPage() {
       if (e.key === "ArrowRight") next();
     };
     window.addEventListener("keydown", onKey);
-    // Prevent background scroll
     const origOverflow = document.body.style.overflow;
     document.body.style.overflow = "hidden";
     return () => {
       window.removeEventListener("keydown", onKey);
       document.body.style.overflow = origOverflow;
     };
-  }, [lightboxIndex, filtered.length]);
+  }, [lightboxIndex]);
 
   return (
     <main className="relative bg-gradient-to-b from-white via-gray-50 to-gray-100">
-      {/* Hero */}
+      {/* Hero Section */}
       <section
         className="relative py-14 sm:py-18 md:py-28 text-center bg-cover bg-center bg-scroll md:bg-fixed overflow-hidden"
         style={{ backgroundImage: `url('${headerBgUrl}')` }}
@@ -364,7 +331,6 @@ export default function GalleryPage() {
           <h1
             className="text-3xl sm:text-4xl md:text-5xl font-extrabold text-gray-900"
             data-aos="fade-up"
-            data-aos-delay="0"
           >
             Gallery
           </h1>
@@ -373,7 +339,7 @@ export default function GalleryPage() {
             data-aos="fade-up"
             data-aos-delay="100"
           >
-            Moments from hikes, socials, and volunteering—captured by our
+            Moments from hikes, socials, and volunteering — captured by our
             community.
           </p>
           <div
@@ -386,51 +352,49 @@ export default function GalleryPage() {
         </div>
       </section>
 
-      {/* Body */}
-      <div className="max-w-6xl mx-auto px-4 sm:px-6 pb-16 sm:pb-20 md:pb-24 mt-10">
-        {/* Filter */}
-        <CategoryFilter
-          categories={categories}
-          active={activeCat}
-          counts={counts}
-          onChange={setActiveCat}
-        />
+      {/* Categorized Gallery */}
+      <div className="max-w-6xl mx-auto px-4 sm:px-6 pb-16 sm:pb-20 md:pb-24 mt-10 space-y-16">
+        {baseCategories.map((cat, sectionIdx) => {
+          const catPhotos = photos.filter((p) => p.category === cat);
+          return (
+            <section key={cat} data-aos="fade-up" data-aos-delay={sectionIdx * 150}>
+              <SectionHeader title={cat} Icon={FiCamera} />
 
-        {/* Masonry Grid: 4 columns on large screens */}
-        <div className="mt-10">
-          <SectionHeader title="All photos" Icon={FiCamera} />
-          {filtered.length > 0 ? (
-            <div className="columns-1 sm:columns-2 md:columns-3 lg:columns-4 gap-4 [column-fill:_balance]">
-              {filtered.map((p, idx) => (
-                <div
-                  key={p.id}
-                  className="mb-4 break-inside-avoid inline-block w-full"
-                  style={{ breakInside: "avoid" }}
-                >
-                  <GalleryCard
-                    photo={p}
-                    delay={150 + idx * 80}
-                    onOpen={() => openAt(idx)}
-                  />
+              {catPhotos.length > 0 ? (
+                <div className="columns-1 sm:columns-2 md:columns-3 lg:columns-4 gap-4 [column-fill:_balance]">
+                  {catPhotos.map((p, idx) => (
+                    <div
+                      key={p.id}
+                      className="mb-4 break-inside-avoid inline-block w-full"
+                    >
+                      <GalleryCard
+                        photo={p}
+                        delay={150 + idx * 80}
+                        onOpen={() =>
+                          openAt(photos.findIndex((x) => x.id === p.id))
+                        }
+                      />
+                    </div>
+                  ))}
                 </div>
-              ))}
-            </div>
-          ) : (
-            <div
-              className="mt-6 bg-white/80 backdrop-blur-sm rounded-2xl border border-gray-100 shadow-sm p-8 text-center text-gray-700"
-              data-aos="fade-up"
-              data-aos-delay="150"
-            >
-              Nothing in this category yet—check back soon!
-            </div>
-          )}
-        </div>
+              ) : (
+                <div
+                  className="mt-6 bg-white/80 backdrop-blur-sm rounded-2xl border border-gray-100 shadow-sm p-8 text-center text-gray-700"
+                  data-aos="fade-up"
+                  data-aos-delay="150"
+                >
+                  Nothing in this category yet — check back soon!
+                </div>
+              )}
+            </section>
+          );
+        })}
       </div>
 
       {/* Lightbox */}
       {lightboxIndex >= 0 && (
         <Lightbox
-          items={filtered}
+          items={photos}
           index={lightboxIndex}
           onClose={close}
           onPrev={prev}

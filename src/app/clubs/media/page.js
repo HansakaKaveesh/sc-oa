@@ -223,7 +223,7 @@ export default function MediaClubPage() {
     });
   }, []);
 
-  const headerBgUrl = "/clubs/hero/media.jpg";
+  const headerBgUrl = "https://t3.ftcdn.net/jpg/09/65/61/82/360_F_965618299_yXtsITPScun41ngnPAfzj6aFi7c5jYmY.jpg";
 
   const mediaClubTeam = [
     { name: "Shenal Veluathan", role: "President", image: "/unipics/media/IMG-20251024-WA0012.jpg" },

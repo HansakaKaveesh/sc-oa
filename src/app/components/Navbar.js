@@ -28,6 +28,14 @@ export default function Navbar() {
     { name: "Contact", href: "/contact" },
   ];
 
+  // Centralized social links (update these URLs)
+  const socialLinks = [
+    { name: "Facebook", href: "https://www.facebook.com/OpenArcSchool", icon: FaFacebook },
+    { name: "Instagram", href: "https://www.instagram.com/openarc_campus/", icon: FaInstagram },
+    { name: "YouTube", href: "https://www.youtube.com/@openarccampus6520", icon: FaYoutube },
+    { name: "TikTok", href: "https://www.tiktok.com/@openarc_campus", icon: FaTiktok },
+  ];
+
   // Add club logos here
   const clubs = [
     { name: "English & Cultural Club", href: "/clubs/english", logo: "/clubs/logo/English.png" },
@@ -46,13 +54,11 @@ export default function Navbar() {
   // Close dropdown when clicking outside (desktop only)
   useEffect(() => {
     const onDocClick = (e) => {
-      if (
-        window.innerWidth >= 768 &&
-        clubsOpen &&
-        dropdownRef.current &&
-        !dropdownRef.current.contains(e.target)
-      ) {
-        setClubsOpen(false);
+      if (window.innerWidth >= 768 && clubsOpen) {
+        const node = dropdownRef.current;
+        if (node && !node.contains(e.target)) {
+          setClubsOpen(false);
+        }
       }
     };
 
@@ -161,7 +167,6 @@ export default function Navbar() {
                         onClick={() => setClubsOpen(false)}
                         aria-label={club.name}
                       >
-                        {/* club logo */}
                         <span className="inline-flex h-6 w-6 items-center justify-center rounded-full bg-white ring-1 ring-gray-200 overflow-hidden">
                           <img
                             src={club.logo}
@@ -197,12 +202,15 @@ export default function Navbar() {
         {/* Social + Mobile Toggle */}
         <div className="flex items-center gap-5 text-blue-900 text-lg">
           <div className="hidden sm:flex gap-4">
-            {[FaFacebook, FaInstagram, FaYoutube, FaTiktok].map((Icon, i) => (
+            {socialLinks.map(({ name, href, icon: Icon }) => (
               <a
-                key={i}
-                href="#"
+                key={name}
+                href={href}
+                target="_blank"
+                rel="noopener noreferrer"
                 className="hover:text-blue-600 hover:scale-110 transition-transform rounded focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-500"
-                aria-label={`Social link ${i + 1}`}
+                aria-label={name}
+                title={name}
               >
                 <Icon />
               </a>
@@ -287,12 +295,15 @@ export default function Navbar() {
           )}
 
           <div className="flex justify-center gap-5 text-blue-500 text-lg mt-3">
-            {[FaFacebook, FaInstagram, FaYoutube, FaTiktok].map((Icon, i) => (
+            {socialLinks.map(({ name, href, icon: Icon }) => (
               <a
-                key={i}
-                href="#"
+                key={name}
+                href={href}
+                target="_blank"
+                rel="noopener noreferrer"
                 className="hover:text-blue-600 hover:scale-110 transition-transform rounded focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-500"
-                aria-label={`Social link ${i + 1}`}
+                aria-label={name}
+                title={name}
               >
                 <Icon />
               </a>

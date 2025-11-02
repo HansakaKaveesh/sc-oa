@@ -224,7 +224,7 @@ export default function EventsPage() {
       end: "2025-12-05T11:00:00+05:30",
       location: "OpenArc Campus, Colombo, Sri Lanka",
       category: "Social",
-      image: "/events/WhatsApp Image 2025-10-17 at 11.25.25_7c0acc6f.jpg",
+      image: "/events/Culturalnight.jpg",
       description:
         "Experience the vibrant cultures of Sri Lanka through dance, music, and cuisine at SOLUNA’25. A night to remember!",
       rsvpLink: GOOGLE_FORM_URL,

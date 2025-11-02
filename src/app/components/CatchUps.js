@@ -18,7 +18,7 @@ export default function CatchUps() {
     {
       title: "SOLUNA’25 – The Cultural Night!",
       text: "Experience the vibrant cultures of Sri Lanka through dance, music, and cuisine at SOLUNA’25. A night to remember!",
-      img: "/events/WhatsApp Image 2025-10-17 at 11.25.25_7c0acc6f.jpg",
+      img: "/events/Culturalnight.jpg",
       link: "/events",
       tag: "Social Event",
     },

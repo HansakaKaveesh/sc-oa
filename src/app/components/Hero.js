@@ -5,7 +5,13 @@ import AOS from "aos";
 import "aos/dist/aos.css";
 
 export default function Hero() {
-  const images = useMemo(() => ["/hero1.jpg", "/hero2.jpg", "/hero3.jpg"], []);
+  const images = useMemo(() => 
+    ["/hero1.jpg", 
+    "/hero2.jpg",
+    "/hero3.jpg",
+    "/gallery/awrudu25/490570807_666646679636227_7954484713225937578_n.jpg",
+     "/gallery/navidad24/486681729_1091761232990367_5091805288739626495_n.jpg"
+  ], []);
   const [current, setCurrent] = useState(0);
   const [prev, setPrev] = useState(0);
   const [reduceMotion, setReduceMotion] = useState(false);

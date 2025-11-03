@@ -41,7 +41,7 @@ export default function About() {
           >
             <span className="absolute -left-4 top-2 w-1 h-8 bg-blue-800 rounded-full hidden md:block"></span>
             What is{" "}
-            <span className="text-blue-800">OpenArc Campus Student Community</span>?
+            <span className="text-blue-800">Student Council OpenArc Campus</span>?
           </h2>
 
           <p
@@ -49,9 +49,10 @@ export default function About() {
             data-aos="fade-up"
             data-aos-delay="100"
           >
-            The <strong>OpenArc Campus Student Community (OCSC)</strong> is the
-            primary student body representing the Faculty of Computing at OpenArc Campus.
-            It unites student‑led societies, technical clubs, and innovation groups under one platform.
+            The <strong>Student Council OpenArc Campus (SCOC)</strong> is the primary student
+             body representing the students of OpenArc Campus.
+              It brings together student-led societies, technical clubs,
+             and innovation groups under one united platform.
           </p>
 
           <p
@@ -59,10 +60,11 @@ export default function About() {
             data-aos="fade-up"
             data-aos-delay="200"
           >
-            Our mission is to empower computing students to engage, collaborate,
-            and showcase their potential through learning opportunities,
-            hackathons, and creative initiatives. From beginner programmers to
-            advanced developers — there’s a place for everyone here.
+            Our mission is to empower students to engage, collaborate, 
+            and showcase their potential through learning opportunities, 
+            hackathons, leadership programs, and creative initiatives.
+             Whether you are a beginner exploring new skills or an advanced
+              learner building real-world solutions — there’s a place for everyone here.
           </p>
 
           {/* Icon list (react-icons) */}

@@ -69,7 +69,7 @@ export default function WhatWeDo() {
           data-aos="fade-up"
           data-aos-delay="100"
         >
-          From technical learning programs to vibrant student events, OCSC drives
+          From technical learning programs to vibrant student events, SCOC drives
           creativity, knowledge, and collaboration throughout the Student Community.
         </p>
 

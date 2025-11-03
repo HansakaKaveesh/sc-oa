@@ -19,7 +19,7 @@ export default function Footer() {
             className="h-10 mx-auto md:mx-0 mb-4"
           />
           <p className="text-gray-700 text-sm leading-relaxed">
-            OpenArc Campus Student Community (OCSC)
+            Student Council OpenArc Campus (SCOC)
             <br />
             A collaborative platform connecting students, innovation, and technology.
           </p>
@@ -71,8 +71,8 @@ export default function Footer() {
           </div>
           <p className="text-sm text-gray-600">
             <strong>Email:</strong>{" "}
-            <a href="mailto:ocsc@openarc.edu.lk" className="hover:text-orange-600">
-              ocsc@openarc.edu.lk
+            <a href="mailto:csr@openarc.edu.lk" className="hover:text-orange-600">
+              csr@openarc.edu.lk
             </a>
           </p>
           <p className="text-sm text-gray-600">

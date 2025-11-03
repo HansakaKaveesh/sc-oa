@@ -18,8 +18,8 @@ import {
 } from "react-icons/fi";
 
 // Replace these with your real details
-const CONTACT_EMAIL = "club@example.com";
-const CONTACT_PHONE = "+94 71 234 5678";
+const CONTACT_EMAIL = "csr@openarc.edu.lk";
+const CONTACT_PHONE = "+94 11 251 5050";
 const ADDRESS = "No 126 High Level Rd, Colombo 11222";
 const MAP_EMBED_URL =
   "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3961.1064374634334!2d79.8771446!3d6.877849899999999!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3ae25b0e8f383d73%3A0xd5ef7c7769be381!2sOpenArc%20Campus!5e0!3m2!1sen!2slk!4v1761401809401!5m2!1sen!2slk"; // optional: your Google Maps embed

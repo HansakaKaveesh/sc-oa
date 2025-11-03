@@ -57,7 +57,7 @@ export default function Clubs() {
           data-aos="fade-up"
           data-aos-delay="100"
         >
-          OCSC unites all student-driven communities under one umbrella — connecting passionate learners,
+          SCOC unites all student-driven communities under one umbrella — connecting passionate learners,
           innovators, and creators across every field in computing.
         </p>
 

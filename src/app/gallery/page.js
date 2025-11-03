@@ -1,11 +1,10 @@
 "use client";
 
-import { useEffect, useMemo, useState } from "react";
+import { useCallback, useEffect, useMemo, useState } from "react";
 import AOS from "aos";
 import "aos/dist/aos.css";
 
 import {
-  FiFilter,
   FiTag,
   FiMapPin,
   FiCalendar,
@@ -17,148 +16,74 @@ import {
   FiZoomIn,
 } from "react-icons/fi";
 
-// Sample photos — replace with your own
-const photos = [
-  {
-    id: "Christmas01",
-    src: "/gallery/486530557_1091760912990399_6176415832645765489_n.jpg",
-    alt: "Christmas Party 2024",
-    category: "Navidad 24",
-    location: "Glen Reception Hall",
-    date: "2024-12-21",
-    albumUrl: "https://photos.app.goo.gl/YOUR_ALBUM",
-  },
-  {
-    id: "Christmas02",
-    src: "/gallery/486295364_1091760866323737_3736419832590707059_n.jpg",
-    alt: "Christmas Party 2024",
-    category: "Navidad 24",
-    location: "Glen Reception Hall",
-    date: "2024-12-21",
-    albumUrl: "https://photos.app.goo.gl/YOUR_ALBUM",
-  },
-  
-    {
-    id: "Christmas03",
-    src: "/gallery/486603594_1091761036323720_5192291125936545835_n.jpg",
-    alt: "Christmas Party 2024",
-    category: "Navidad 24",
-    location: "Glen Reception Hall",
-    date: "2024-12-21",
-    albumUrl: "https://photos.app.goo.gl/YOUR_ALBUM",
-  },
-    {
-    id: "Christmas14",
-    src: "/gallery/486681729_1091761232990367_5091805288739626495_n.jpg",
-    alt: "Christmas Party 2024",
-    category: "Navidad 24",
-    location: "Glen Reception Hall",
-    date: "2024-12-21",
-    albumUrl: "https://photos.app.goo.gl/YOUR_ALBUM",
-  },
-    {
-    id: "Christmas04",
-    src: "/gallery/486681014_1091761196323704_5950816272413761808_n.jpg",
-    alt: "Christmas Party 2024",
-    category: "Navidad 24",
-    location: "Glen Reception Hall",
-    date: "2024-12-21",
-    albumUrl: "https://photos.app.goo.gl/YOUR_ALBUM",
-  },
+// Max photos to render per category
+const MAX_PER_CATEGORY = 14;
 
-  {
-    id: "Christmas06",
-    src: "/gallery/486572075_1091760892990401_1006333540243840574_n.jpg",
-    alt: "Christmas Party 2024",
-    category: "Navidad 24",
-    location: "Glen Reception Hall",
-    date: "2024-12-21",
-    albumUrl: "https://photos.app.goo.gl/YOUR_ALBUM",
-  },
-  {
-    id: "Christmas07",
-    src: "/gallery/486676204_1091761042990386_2275111920779794432_n.jpg",
-    alt: "Christmas Party 2024",
-    category: "Navidad 24",
-    location: "Glen Reception Hall",
-    date: "2024-12-21",
-    albumUrl: "https://photos.app.goo.gl/YOUR_ALBUM",
-  },
-  {
-    id: "Christmas08",
-    src: "/gallery/486625695_1091760862990404_3402733192444088111_n.jpg",
-    alt: "Christmas Party 2024",
-    category: "Navidad 24",
-    location: "Glen Reception Hall",
-    date: "2024-12-21",
-    albumUrl: "https://photos.app.goo.gl/YOUR_ALBUM",
-  },
+// Category-level metadata with a list of photos
+const categories = [
     {
-    id: "Christmas09",
-    src: "/gallery/487083035_1091760839657073_3992000091442056811_n.jpg",
-    alt: "Christmas Party 2024",
-    category: "Navidad 24",
-    location: "Glen Reception Hall",
-    date: "2024-12-21",
+    title: "Trip to Peradeniya 2025",
+    alt: "Trip to Peradeniya 2025",
+    location: "Peradeniya",
+    date: "2025-10-04",
     albumUrl: "https://photos.app.goo.gl/YOUR_ALBUM",
-  },
-    {
-    id: "Christmas10",
-    src: "/gallery/486172773_1091760876323736_4821092343717661358_n.jpg",
-    alt: "Christmas Party 2024",
-    category: "Navidad 24",
-    location: "Glen Reception Hall",
-    date: "2024-12-21",
-    albumUrl: "https://photos.app.goo.gl/YOUR_ALBUM",
+    photos: [
+      { id: "01", src: "/gallery/ambuluwawa2025/557949611_1247906934042462_6337436313355771488_n.jpg" },
+      { id: "02", src: "/gallery/ambuluwawa2025/557713905_1247906730709149_2171220989890356556_n.jpg" },
+      { id: "03", src: "/gallery/ambuluwawa2025/557740041_1247906857375803_3487195262653272285_n.jpg" },
+      { id: "04", src: "/gallery/ambuluwawa2025/557748226_1247906814042474_4045161704660407898_n.jpg" },
+      { id: "05", src: "/gallery/ambuluwawa2025/558098435_1247906937375795_840156469024764564_n.jpg" },
+      { id: "06", src: "/gallery/ambuluwawa2025/558860319_1247906774042478_8466563926172022709_n.jpg" },
+      { id: "07", src: "/gallery/ambuluwawa2025/558882254_1247906947375794_4374626458833329897_n.jpg" },
+      { id: "08", src: "/gallery/ambuluwawa2025/559365160_1247906710709151_3061900137935066186_n.jpg" },
+      { id: "09", src: "/gallery/ambuluwawa2025/559464619_1247906750709147_9189392825273423890_n.jpg" },
+      { id: "10", src: "/gallery/ambuluwawa2025/559552961_1247906944042461_6215943843210245660_n.jpg" },
+      { id: "11", src: "/gallery/ambuluwawa2025/559892406_1247906860709136_407065835513119068_n.jpg" },
+      { id: "12", src: "/gallery/ambuluwawa2025/561770095_1247906800709142_8148797682348018350_n.jpg" },
+    ],
   },
   {
-    id: "Christmas05",
-    src: "/gallery/486196414_1091760856323738_6722614718792144794_n.jpg",
+    title: "Navidad 24",
     alt: "Christmas Party 2024",
-    category: "Navidad 24",
     location: "Glen Reception Hall",
     date: "2024-12-21",
     albumUrl: "https://photos.app.goo.gl/YOUR_ALBUM",
+    photos: [
+      { id: "Christmas01", src: "/gallery/navidad24/486530557_1091760912990399_6176415832645765489_n.jpg" },
+      { id: "Christmas02", src: "/gallery/navidad24/486295364_1091760866323737_3736419832590707059_n.jpg" },
+      { id: "Christmas03", src: "/gallery/navidad24/486603594_1091761036323720_5192291125936545835_n.jpg" },
+      { id: "Christmas04", src: "/gallery/navidad24/486681014_1091761196323704_5950816272413761808_n.jpg" },
+      { id: "Christmas05", src: "/gallery/navidad24/486196414_1091760856323738_6722614718792144794_n.jpg" },
+      { id: "Christmas06", src: "/gallery/navidad24/486572075_1091760892990401_1006333540243840574_n.jpg" },
+      { id: "Christmas07", src: "/gallery/navidad24/486676204_1091761042990386_2275111920779794432_n.jpg" },
+      { id: "Christmas08", src: "/gallery/navidad24/486625695_1091760862990404_3402733192444088111_n.jpg" },
+      { id: "Christmas09", src: "/gallery/navidad24/487083035_1091760839657073_3992000091442056811_n.jpg" },
+      { id: "Christmas10", src: "/gallery/navidad24/486172773_1091760876323736_4821092343717661358_n.jpg" },
+      { id: "Christmas11", src: "/gallery/navidad24/486525187_1091760829657074_136989484960661333_n.jpg" },
+      { id: "Christmas12", src: "/gallery/navidad24/487227890_1091760849657072_7707836164072573859_n.jpg" },
+      { id: "Christmas13", src: "/gallery/navidad24/486472088_1091760872990403_6052589372484359964_n.jpg" },
+      { id: "Christmas14", src: "/gallery/navidad24/486681729_1091761232990367_5091805288739626495_n.jpg" },
+    ],
   },
-
-    {
-    id: "Christmas11",
-    src: "/gallery/486525187_1091760829657074_136989484960661333_n.jpg",
-    alt: "Christmas Party 2024",
-    category: "Navidad 24",
-    location: "Glen Reception Hall",
-    date: "2024-12-21",
-    albumUrl: "https://photos.app.goo.gl/YOUR_ALBUM",
-  },
-    {
-    id: "Christmas12",
-    src: "/gallery/487227890_1091760849657072_7707836164072573859_n.jpg",
-    alt: "Christmas Party 2024",
-    category: "Navidad 24",
-    location: "Glen Reception Hall",
-    date: "2024-12-21",
-    albumUrl: "https://photos.app.goo.gl/YOUR_ALBUM",
-  },
-    {
-    id: "Christmas13",
-    src: "/gallery/486472088_1091760872990403_6052589372484359964_n.jpg",
-    alt: "Christmas Party 2024",
-    category: "Navidad 24",
-    location: "Glen Reception Hall",
-    date: "2024-12-21",
-    albumUrl: "https://photos.app.goo.gl/YOUR_ALBUM",
-  },
-
-
 ];
+
+// Flatten into the shape the UI uses
+const photos = categories.flatMap((cat) =>
+  cat.photos.map((p) => ({
+    id: p.id,
+    src: p.src,
+    alt: p.alt ?? cat.alt ?? cat.title,
+    category: cat.title,
+    location: p.location ?? cat.location ?? "",
+    date: p.date ?? cat.date ?? "",
+    albumUrl: p.albumUrl ?? cat.albumUrl ?? "",
+  }))
+);
 
 // Helper components
 function SectionHeader({ title, Icon }) {
   return (
-    <div
-      className="flex items-center justify-center gap-3 mb-6"
-      data-aos="fade-up"
-    >
+    <div className="flex items-center justify-center gap-3 mb-6" data-aos="fade-up">
       <span className="inline-flex items-center justify-center h-9 w-9 rounded-lg bg-blue-50 text-blue-700">
         <Icon className="h-5 w-5" />
       </span>
@@ -236,10 +161,7 @@ function Lightbox({ items, index, onClose, onPrev, onNext }) {
       aria-modal="true"
       onClick={onClose}
     >
-      <div
-        className="relative max-w-6xl w-full"
-        onClick={(e) => e.stopPropagation()}
-      >
+      <div className="relative max-w-6xl w-full" onClick={(e) => e.stopPropagation()}>
         <button
           onClick={onClose}
           className="absolute -top-10 right-0 text-white/90 hover:text-white inline-flex items-center gap-2"
@@ -324,20 +246,33 @@ export default function GalleryPage() {
   const headerBgUrl =
     "https://images.pexels.com/photos/547114/pexels-photo-547114.jpeg";
 
+  // Derive categories list and prepare data
   const baseCategories = useMemo(
     () => Array.from(new Set(photos.map((p) => p.category))).sort(),
     []
   );
 
-  // Lightbox state
+  // Lightbox state (scoped to the clicked category)
+  const [lightboxItems, setLightboxItems] = useState([]);
   const [lightboxIndex, setLightboxIndex] = useState(-1);
 
-  const openAt = (i) => setLightboxIndex(i);
-  const close = () => setLightboxIndex(-1);
-  const prev = () =>
-    setLightboxIndex((i) => (i <= 0 ? photos.length - 1 : i - 1));
-  const next = () =>
-    setLightboxIndex((i) => (i >= photos.length - 1 ? 0 : i + 1));
+  const openLightbox = (items, index) => {
+    setLightboxItems(items);
+    setLightboxIndex(index);
+  };
+  const close = () => {
+    setLightboxIndex(-1);
+    setLightboxItems([]);
+  };
+
+  const prev = useCallback(
+    () => setLightboxIndex((i) => (i <= 0 ? lightboxItems.length - 1 : i - 1)),
+    [lightboxItems.length]
+  );
+  const next = useCallback(
+    () => setLightboxIndex((i) => (i >= lightboxItems.length - 1 ? 0 : i + 1)),
+    [lightboxItems.length]
+  );
 
   // Keyboard control
   useEffect(() => {
@@ -354,7 +289,7 @@ export default function GalleryPage() {
       window.removeEventListener("keydown", onKey);
       document.body.style.overflow = origOverflow;
     };
-  }, [lightboxIndex]);
+  }, [lightboxIndex, prev, next]);
 
   return (
     <main className="relative bg-gradient-to-b from-white via-gray-50 to-gray-100">
@@ -366,10 +301,7 @@ export default function GalleryPage() {
         <div className="absolute inset-0 bg-gradient-to-b from-white/70 via-blue-50/70 to-white/70 backdrop-blur-[2px]" />
 
         <div className="relative z-10 max-w-6xl mx-auto px-4 sm:px-6 mt-18">
-          <h1
-            className="text-3xl sm:text-4xl md:text-5xl font-extrabold text-gray-900"
-            data-aos="fade-up"
-          >
+          <h1 className="text-3xl sm:text-4xl md:text-5xl font-extrabold text-gray-900" data-aos="fade-up">
             Gallery
           </h1>
           <p
@@ -377,40 +309,31 @@ export default function GalleryPage() {
             data-aos="fade-up"
             data-aos-delay="100"
           >
-            Moments from hikes, socials, and volunteering — captured by our
-            community.
+            Moments from events — captured by our community.
           </p>
-          <div
-            className="mt-6 flex justify-center"
-            data-aos="fade-up"
-            data-aos-delay="200"
-          >
+          <div className="mt-6 flex justify-center" data-aos="fade-up" data-aos-delay="200">
             <span className="inline-block w-24 h-1 rounded-full bg-blue-700" />
           </div>
         </div>
       </section>
 
-      {/* Categorized Gallery */}
+      {/* Categorized Gallery (max 8 per category) */}
       <div className="max-w-6xl mx-auto px-4 sm:px-6 pb-16 sm:pb-20 md:pb-24 mt-10 space-y-16">
         {baseCategories.map((cat, sectionIdx) => {
           const catPhotos = photos.filter((p) => p.category === cat);
+          const limited = catPhotos.slice(0, MAX_PER_CATEGORY);
           return (
             <section key={cat} data-aos="fade-up" data-aos-delay={sectionIdx * 150}>
               <SectionHeader title={cat} Icon={FiCamera} />
 
-              {catPhotos.length > 0 ? (
+              {limited.length > 0 ? (
                 <div className="columns-1 sm:columns-2 md:columns-3 lg:columns-4 gap-4 [column-fill:_balance]">
-                  {catPhotos.map((p, idx) => (
-                    <div
-                      key={p.id}
-                      className="mb-4 break-inside-avoid inline-block w-full"
-                    >
+                  {limited.map((p, idx) => (
+                    <div key={p.id} className="mb-4 break-inside-avoid inline-block w-full">
                       <GalleryCard
                         photo={p}
                         delay={150 + idx * 80}
-                        onOpen={() =>
-                          openAt(photos.findIndex((x) => x.id === p.id))
-                        }
+                        onOpen={() => openLightbox(limited, idx)}
                       />
                     </div>
                   ))}
@@ -429,10 +352,10 @@ export default function GalleryPage() {
         })}
       </div>
 
-      {/* Lightbox */}
+      {/* Lightbox (uses the clicked category's limited items) */}
       {lightboxIndex >= 0 && (
         <Lightbox
-          items={photos}
+          items={lightboxItems}
           index={lightboxIndex}
           onClose={close}
           onPrev={prev}

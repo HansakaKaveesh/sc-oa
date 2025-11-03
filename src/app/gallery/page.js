@@ -17,7 +17,7 @@ import {
 } from "react-icons/fi";
 
 // Max photos to render per category
-const MAX_PER_CATEGORY = 14;
+const MAX_PER_CATEGORY = 20;
 
 // Category-level metadata with a list of photos
 const categories = [
@@ -40,6 +40,34 @@ const categories = [
       { id: "10", src: "/gallery/ambuluwawa2025/559552961_1247906944042461_6215943843210245660_n.jpg" },
       { id: "11", src: "/gallery/ambuluwawa2025/559892406_1247906860709136_407065835513119068_n.jpg" },
       { id: "12", src: "/gallery/ambuluwawa2025/561770095_1247906800709142_8148797682348018350_n.jpg" },
+    ],
+  },
+      {
+    title: "කොවුල් වසන්තය '25",
+    alt: "කොවුල් වසන්තය '25",
+    location: "Lalith athulathmudali ground - Kirulapone",
+    date: "2025-04-05",
+    albumUrl: "https://photos.app.goo.gl/YOUR_ALBUM",
+    photos: [
+      { id: "01", src: "/gallery/awrudu25/1.jpg" },
+      { id: "02", src: "/gallery/awrudu25/2.jpg" },
+      { id: "03", src: "/gallery/awrudu25/490173608_666626876304874_615699040961415958_n.jpg" },
+      { id: "04", src: "/gallery/awrudu25/490138545_666626769638218_3683577342580633582_n.jpg" },
+      { id: "05", src: "/gallery/awrudu25/490127740_666631006304461_8811581610325719188_n.jpg" },
+      { id: "06", src: "/gallery/awrudu25/489697001_666629852971243_6674870109736651433_n.jpg" },
+      { id: "07", src: "/gallery/awrudu25/489958743_666631142971114_5457891567059610647_n.jpg" },
+      { id: "08", src: "/gallery/awrudu25/489959247_666654062968822_4587986584253382897_n.jpg" },
+      { id: "09", src: "/gallery/awrudu25/490013002_666657366301825_4385283942111186330_n.jpg" },
+      { id: "10", src: "/gallery/awrudu25/489811668_666654936302068_4320227326163778687_n.jpg" },
+      { id: "11", src: "/gallery/awrudu25/490153264_666658209635074_4659589395900923928_n.jpg" },
+      { id: "12", src: "/gallery/awrudu25/490184133_666652876302274_5838308971274859760_n.jpg" },
+      { id: "13", src: "/gallery/awrudu25/490196945_666653266302235_6916149790821965043_n.jpg" },
+      { id: "18", src: "/gallery/awrudu25/490570807_666646679636227_7954484713225937578_n.jpg" },
+      { id: "14", src: "/gallery/awrudu25/490676108_666656772968551_7657678527484374076_n.jpg" },
+      { id: "15", src: "/gallery/awrudu25/490344982_666632232971005_7377091768610966965_n.jpg" },
+      { id: "16", src: "/gallery/awrudu25/490456478_666627509638144_5095802337176416125_n.jpg" },
+      { id: "17", src: "/gallery/awrudu25/490311197_666630849637810_6998480568468656341_n.jpg" },
+
     ],
   },
   {
@@ -65,6 +93,7 @@ const categories = [
       { id: "Christmas14", src: "/gallery/navidad24/486681729_1091761232990367_5091805288739626495_n.jpg" },
     ],
   },
+
 ];
 
 // Flatten into the shape the UI uses

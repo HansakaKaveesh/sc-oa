@@ -15,7 +15,7 @@ const GOOGLE_SHEET_CSV_URL =
   "https://docs.google.com/spreadsheets/d/1dtPbEOHZYvCFZooHCmJm9fbnuKOi_7gm--c04pukUOs/export?format=csv&gid=0";
 
 // 2) (Optional) Google Form for accepting donations
-const DONATION_FORM_URL = "https://forms.gle/YOUR_DONATION_FORM_ID";
+const DONATION_FORM_URL = "https://forms.gle/1CZQpEsCQXWdQ8Nu5";
 
 // 3) Club logo + hero background (adjust paths as needed)
 const CLUB_LOGO = "/Logo SCOC.png";

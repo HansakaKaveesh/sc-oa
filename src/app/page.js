@@ -22,11 +22,11 @@ export default function Home() {
         delayMs={1200}
         frequencyMinutes={5}
         oncePerSession={false}
-        title="OFFICIAL WRISTBAND!"
-        text="EXCLUSIVE OPENARC CAMPUS WRISTBANDS."
-        imageSrc="/18899268.png"
-        ctaText="Buy Now"
-        ctaHref="https://forms.gle/FAmUD1HEe5byGS1m7"
+        title="HEARTS FOR HOPE!"
+        text="Help Families Affected by the Floods"
+        imageSrc="/Hope .png"
+        ctaText="Donate Now"
+        ctaHref="https://forms.gle/1CZQpEsCQXWdQ8Nu5"
       />
     </>
   );

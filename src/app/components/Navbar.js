@@ -26,6 +26,7 @@ export default function Navbar() {
     { name: "Clubs", href: "#clubs" }, // dropdown trigger
     { name: "Gallery", href: "/gallery" },
     { name: "Contact", href: "/contact" },
+    { name: "Donations", href: "/donations" },
   ];
 
   // Centralized social links (update these URLs)

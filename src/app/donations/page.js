@@ -231,7 +231,7 @@ export default function DonationsPage() {
             data-aos="fade-up"
             data-aos-delay="0"
           >
-            Donations & Support
+            HEARTS FOR HOPE
           </h1>
           <p
             className="max-w-2xl mx-auto mt-4 text-gray-600 text-base sm:text-lg"

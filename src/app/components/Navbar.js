@@ -29,7 +29,7 @@ export default function Navbar() {
     { name: "Donations", href: "/donations" },
   ];
 
-  // Centralized social links (update these URLs)
+  // Social links
   const socialLinks = [
     { name: "Facebook", href: "https://www.facebook.com/OpenArcSchool", icon: FaFacebook },
     { name: "Instagram", href: "https://www.instagram.com/openarc_campus/", icon: FaInstagram },
@@ -37,7 +37,7 @@ export default function Navbar() {
     { name: "TikTok", href: "https://www.tiktok.com/@openarc_campus", icon: FaTiktok },
   ];
 
-  // Add club logos here
+  // Clubs for dropdown
   const clubs = [
     { name: "English & Cultural Club", href: "/clubs/english", logo: "/clubs/logo/English.png" },
     { name: "Media Club", href: "/clubs/media", logo: "/clubs/logo/media.png" },
@@ -183,10 +183,13 @@ export default function Navbar() {
                 )}
               </div>
             ) : (
+              // DESKTOP LINKS (Donations blink/glow here)
               <Link
                 key={item.name}
                 href={item.href}
-                className={linkBase}
+                className={`${linkBase} ${
+                  item.name === "Donations" ? "donation-blink" : ""
+                }`}
                 aria-current={isActive(item.href) ? "page" : undefined}
               >
                 {item.name}
@@ -284,11 +287,14 @@ export default function Navbar() {
                 </div>
               </div>
             ) : (
+              // MOBILE LINKS (Donations blink/glow here)
               <Link
                 key={item.name}
                 href={item.href}
                 onClick={() => setOpen(false)}
-                className="block text-gray-700 font-medium hover:text-orange-600 transition rounded focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-orange-500"
+                className={`block text-gray-700 font-medium hover:text-orange-600 transition rounded focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-orange-500 ${
+                  item.name === "Donations" ? "donation-blink" : ""
+                }`}
               >
                 {item.name}
               </Link>

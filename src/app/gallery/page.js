@@ -94,6 +94,34 @@ const categories = [
     ],
   },
 
+  {
+    title: "Soluna 2025",
+    alt: "Soluna Party 2025",
+    location: "HOTEL ARIYANA REACH - MAHARAGAMA",
+    date: "2025-12-08",
+    albumUrl: "https://photos.app.goo.gl/YOUR_ALBUM",
+    photos: [
+      { id: "Soluna01", src: "/gallery/soluna25/3Q8A0020.jpg" },
+      { id: "Soluna02", src: "/gallery/soluna25/3Q8A0162.jpg" },
+      { id: "Soluna03", src: "/gallery/soluna25/3Q8A0064.jpg" },
+      { id: "Soluna04", src: "/gallery/soluna25/3Q8A0174.jpg" },
+      { id: "Soluna05", src: "/gallery/soluna25/3Q8A0359.jpg" },
+      { id: "Soluna06", src: "/gallery/soluna25/3Q8A0503.jpg" },
+      { id: "Soluna07", src: "/gallery/soluna25/4B1A8230.jpg" },
+      { id: "Soluna08", src: "/gallery/soluna25/4B1A8242.jpg" },
+      { id: "Soluna09", src: "/gallery/soluna25/4B1A8246.jpg" },
+      { id: "Soluna10", src: "/gallery/soluna25/4B1A8272.jpg" },
+      { id: "Soluna11", src: "/gallery/soluna25/4B1A8396.jpg" },
+      { id: "Soluna12", src: "/gallery/soluna25/4B1A8441.jpg" },
+      { id: "Soluna13", src: "/gallery/soluna25/4B1A8512.jpg" },
+      { id: "Soluna14", src: "/gallery/soluna25/4B1A8630.jpg" },
+      { id: "Soluna15", src: "/gallery/soluna25/4B1A8627.jpg" },
+      { id: "Soluna16", src: "/gallery/soluna25/4B1A8635.jpg" },
+      { id: "Soluna17", src: "/gallery/soluna25/4B1A8505.jpg" },
+      { id: "Soluna18", src: "/gallery/soluna25/3Q8A0723.jpg" },
+    ],
+  },
+
 ];
 
 // Flatten into the shape the UI uses
